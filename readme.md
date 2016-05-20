@@ -4,7 +4,9 @@ Tekst
 
 ## Installasjon
 
-Installasjonstekst
+1. composer install
+2. .env
+3. artisan key:generate
 
 ## Tanker om koden
 
