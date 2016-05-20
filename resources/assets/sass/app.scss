@@ -1,6 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Lato|Pragati+Narrow:700);
+
+/*
+ * FONTS AND VARIABLES OVERRIDE
+ *
+ */
 $font-family-sans-serif: 'Lato', sans-serif;
+
 $body-bg: transparent;
+
+$navbar-default-bg: transparent;
+$navbar-default-border: 0px;
+$navbar-height: 70px;
+
+
+
+
 
 html {
 	background: url(../../images/background.jpg) no-repeat bottom right fixed; 
@@ -21,7 +35,13 @@ body {
 }
 
 .brand-img {
-	width: 200px;
+	width: 180px;
+    height: 55px;
+}
+
+.categories-list {
+    margin: 10px 0;
+    font-family: 'Pragati-Narrow', sans-serif;
 }
 
 .video-listing-item {
@@ -56,22 +76,21 @@ body {
 	}
 }
 
-.video-list-single.-featured {
+.video-listing-item.-featured {
     height: 200px
 }
 
 @media (min-width:48em) {
-    .video-list-single.-featured {
+    .video-listing-item.-featured {
         height: 380px
     }
 }
 
-.video-list-single:hover .icon-play-video {
+.video-listing-item:hover .icon-play-video {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
     opacity: 1
 }
-
 
 
 

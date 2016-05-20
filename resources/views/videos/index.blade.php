@@ -1,5 +1,8 @@
 @extends('layouts.default')
 @section('content')
+	
+	@include('parts.categories')
+
 	<div class="row">
 
 	@foreach ($videos as $video)
@@ -12,7 +15,8 @@
 
 	@endforeach
 	</div> <!-- end row listing -->
-
+	
 	{!! $videos->render() !!}
+	
 
 @endsection
