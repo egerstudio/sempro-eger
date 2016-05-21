@@ -8,7 +8,7 @@
 	@foreach ($videos as $video)
 
 		<div class="col-sm-6 col-md-4">
-			<a class="video-listing-item" href="/videos/{{$video->slug}}" style="background-image: url('http://i2.ytimg.com/vi/{{$video->youtube_id}}/maxresdefault.jpg');">
+			<a class="video-listing-item" href="/videos/{{$video->slug}}" style="background-image: url('{{ $video->youtubeDetails()->snippet->thumbnails->maxres->url }}');">
 				<span class="caption">{{ $video->title }}</span>
 			</a>
 		</div>
