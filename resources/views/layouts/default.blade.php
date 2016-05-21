@@ -20,6 +20,8 @@
         <div class="container">
             <div class="navbar-header">
 
+                @if (Auth::user())
+                <!-- Show collapsed hamburger if the user is logged in, no menu items to collapse otherwise -->
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
@@ -27,6 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                @endif
 
                 <!-- Branding -->
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -39,6 +42,7 @@
                 <ul class="nav navbar-nav">
                     <!-- If authenticated we display the backend links -->
                     @if (Auth::user())
+                        <li><a href="{{ url('/backend') }}">Dashboard</a></li>
                         <li><a href="{{ url('/backend/videos') }}">Videos</a></li>
                         <li><a href="{{ url('/backend/categories') }}">Categories</a></li>
                     @endif
@@ -48,6 +52,10 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
+                    @if (Auth::guest())
+                        <li><a class="" href="{{ url('/login') }}">Login</a></li>
+                    @endif
+
                     @if (Auth::user())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -55,7 +63,8 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-cog"></i> Profile</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </li>
                     @endif

@@ -10,6 +10,11 @@ use DB;
 
 class VideosController extends Controller
 {
+    /**
+     * Show all videos
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
     	$videos = Video::paginate(9);
@@ -17,6 +22,11 @@ class VideosController extends Controller
     	return view('videos.index',['videos' => $videos,'categories' => $categories]);
     }
 
+    /**
+     * Show a specific video based on slug
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function show($slug)
     {
     	$video = Video::where('slug',$slug)->first();
