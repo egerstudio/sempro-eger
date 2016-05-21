@@ -13,13 +13,17 @@
 
 Route::get('/', 'VideosController@index');
 
+Route::auth();
+
+Route::get('/backend', 'BackendController@backend');
+
 Route::get('/video/{video}', 'VideosController@show');
 
 Route::get('/{category}', 'VideosController@categoryIndex');
 
 Route::get('/archive/{year}', 'VideosController@archiveIndex');
 
-Route::auth();
 
-Route::get('/backend', 'PagesController@backend');
+
+
 

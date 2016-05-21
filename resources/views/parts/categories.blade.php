@@ -8,13 +8,13 @@
 		  <span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-		@foreach ($videos->first()->distinctYears() as $year)
+		@foreach ($years->distinctYears() as $year)
 			<li><a href="{{ url('/archive/'.$year->year)}}">{{$year->year}}</a></li>
 		@endforeach
 		</ul>
 	</div>
 	<!-- categories -->
-	@if ($categories)
+	@if(isset($categories))
 		<div class="btn-group" role="group">
 			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			  Browse by category

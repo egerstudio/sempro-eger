@@ -19,7 +19,8 @@ class VideosController extends Controller
     {
     	$videos = Video::paginate(9);
         $categories = Category::all();
-    	return view('videos.index',['videos' => $videos,'categories' => $categories]);
+        $years = Video::first();
+    	return view('videos.index',['videos' => $videos,'categories' => $categories, 'years' => $years]);
     }
 
     /**
@@ -32,7 +33,8 @@ class VideosController extends Controller
         $category = Category::where('slug',$slug)->first();
         $videos = Video::where('category_id',$category->id)->paginate(9);
         $categories = Category::all();
-        return view('videos.index',['videos' => $videos,'categories' => $categories]);
+        $years = Video::first();
+        return view('videos.index',['videos' => $videos,'categories' => $categories, 'years' => $years]);
     }
 
     /**
@@ -44,7 +46,8 @@ class VideosController extends Controller
     {
         $videos = Video::whereYear('youtube_date','=',$year)->paginate(9);
         $categories = Category::all();
-        return view('videos.index',['videos' => $videos,'categories' => $categories]);
+        $years = Video::first();
+        return view('videos.index',['videos' => $videos,'categories' => $categories, 'years' => $years]);
     }
 
     /**
@@ -57,6 +60,7 @@ class VideosController extends Controller
     	$video = Video::where('slug',$slug)->first();
         $categories = Category::all();
         $relatedVideos = $video->relatedVideos()->get();
-    	return view('videos.videoitem',['video' => $video,'categories' => $categories,'relatedVideos' => $relatedVideos]);
+        $years = Video::first();
+    	return view('videos.videoitem',['video' => $video,'categories' => $categories,'relatedVideos' => $relatedVideos, 'years' => $years]);
     }
 }
