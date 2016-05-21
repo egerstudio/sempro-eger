@@ -1,9 +1,5 @@
 @extends('layouts.default')
 @section('content')
-<div class="row text-center">
-	@include('parts.categories')
-</div>
-
 <!-- 16:9 aspect ratio -->
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{ $video->youtube_id }}?showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
@@ -11,7 +7,7 @@
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<h3><small>CATEGORY: </small><span class="label label-primary">{{ $video->category->title }}</span></h3>
+		<h3><small>CATEGORY: </small><span class="label label-default">{{ $video->category->title }}</span></h3>
 		<h2>{{ $video->youtubeDetails()->snippet->localized->title }}</h2>
 		<!-- tags -->
 		<p>

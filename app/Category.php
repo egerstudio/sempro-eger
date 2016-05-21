@@ -8,6 +8,6 @@ class Category extends Model
 {
     public function videos() 
     {
-    	$this->hasMany('App\Video');
+    	return $this->hasMany('App\Video');
     }
 }

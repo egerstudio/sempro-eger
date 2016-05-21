@@ -1,3 +1,4 @@
+{{-- toolbar visible for everyone --}}
 <!-- archive and categories -->
 <div class="btn-group categories-list" role="group" aria-label="Archive and Categories">
 	<a class="btn btn-default" href="/">Show all videos</a>
@@ -28,3 +29,32 @@
 		</div>
 	@endif
 </div>
+
+{{-- toolbar visible for admins --}}
+@if (Auth::user())
+<!-- archive and categories -->
+<div class="btn-group space-toolbar" role="group" aria-label="Administrator toolbar">
+	<!-- videos -->
+	<button class="btn btn-primary" disabled><small><strong>ADMINISTRATOR</strong></small></button>
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  Videos
+		  <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<li><a href="">Add new video</a></li>
+		</ul>
+	</div>
+	<!-- categories -->
+	<div class="btn-group" role="group">
+		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		  Categories
+		  <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+			<li><a href="/backend/categories">Show categories</a></li>
+			<li><a href="">Add new category</a></li>
+		</ul>
+	</div>
+</div>
+@endif

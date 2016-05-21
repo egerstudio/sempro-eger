@@ -11,12 +11,12 @@ class Video extends Model
     
 	public function category()
 	{
-		return $this->belongsTo('App\Category');
+		return $this->belongsTo('App\Category','category_id');
 	}
 
 	public function scopeRelatedVideos($query)
 	{
-		return $query->where('category_id',$this->category_id)->where('id','<>',$this->id)->limit(3);
+		return $query->where('category_id',$this->category_id)->where('id','<>',$this->id)->orderBy('youtube_date','desc')->limit(3);
 	}
 
 	public function youtubeDetails()

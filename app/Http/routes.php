@@ -17,6 +17,8 @@ Route::auth();
 
 Route::get('/backend', 'BackendController@backend');
 
+Route::get('/backend/categories', 'BackendCategoriesController@index');
+
 Route::get('/video/{video}', 'VideosController@show');
 
 Route::get('/{category}', 'VideosController@categoryIndex');

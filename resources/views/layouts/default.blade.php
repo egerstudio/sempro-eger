@@ -38,28 +38,17 @@
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <!-- If authenticated we display the backend links -->
-                    @if (Auth::user())
-                        <li><a href="{{ url('/backend') }}">Dashboard</a></li>
-                        <li><a href="{{ url('/backend/videos') }}">Videos</a></li>
-                        <li><a href="{{ url('/backend/categories') }}">Categories</a></li>
-                    @endif
-                </ul>
-
-
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a class="" href="{{ url('/login') }}">Login</a></li>
+                        <li><a class="" href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in"></i> Login</a></li>
                     @endif
 
                     @if (Auth::user())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fa fa-btn fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
@@ -76,6 +65,9 @@
 
     <section id="content">
         <div class="container bg-partial">
+            <div class="row text-center">
+                @include('parts.toolbar')
+            </div>
             @yield('content')
         </div>
     </section>

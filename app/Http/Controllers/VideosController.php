@@ -17,10 +17,8 @@ class VideosController extends Controller
      */
     public function index()
     {
-    	$videos = Video::paginate(9);
-        $categories = Category::all();
-        $years = Video::first();
-    	return view('videos.index',['videos' => $videos,'categories' => $categories, 'years' => $years]);
+    	$videos = Video::orderBy('youtube_date','desc')->paginate(9);
+    	return view('videos.index',compact('videos'));
     }
 
     /**
@@ -31,10 +29,8 @@ class VideosController extends Controller
     public function categoryIndex($slug)
     {
         $category = Category::where('slug',$slug)->first();
-        $videos = Video::where('category_id',$category->id)->paginate(9);
-        $categories = Category::all();
-        $years = Video::first();
-        return view('videos.index',['videos' => $videos,'categories' => $categories, 'years' => $years]);
+        $videos = Video::where('category_id',$category->id)->orderBy('youtube_date','desc')->paginate(9);
+        return view('videos.index',compact('videos'));
     }
 
     /**
@@ -44,10 +40,8 @@ class VideosController extends Controller
      */
     public function archiveIndex($year)
     {
-        $videos = Video::whereYear('youtube_date','=',$year)->paginate(9);
-        $categories = Category::all();
-        $years = Video::first();
-        return view('videos.index',['videos' => $videos,'categories' => $categories, 'years' => $years]);
+        $videos = Video::whereYear('youtube_date','=',$year)->orderBy('youtube_date','desc')->paginate(9);
+        return view('videos.index',compact('videos'));
     }
 
     /**
@@ -58,9 +52,7 @@ class VideosController extends Controller
     public function show($slug)
     {
     	$video = Video::where('slug',$slug)->first();
-        $categories = Category::all();
         $relatedVideos = $video->relatedVideos()->get();
-        $years = Video::first();
-    	return view('videos.videoitem',['video' => $video,'categories' => $categories,'relatedVideos' => $relatedVideos, 'years' => $years]);
+    	return view('videos.videoitem',['video' => $video,'relatedVideos' => $relatedVideos]);
     }
 }

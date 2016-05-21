@@ -20,7 +20,9 @@ $pagination-active-color: #fff;
 $pagination-active-bg: #666;
 $pagination-active-border: #666;
 
+$btn-primary-bg: #666;
 
+$link-color: #666;
 
 
 html {
@@ -40,9 +42,22 @@ p.description {
     font-size: 21px;
 }
 
+.space-toolbar {
+    margin-left: 30px;
+}
+
+.edit-video {
+    margin: -390px 0 0 5px;
+
+    a.edit-btn {
+        background: rgba(255,255,255,0.3);
+        border: 0;
+    }
+}
+
 .bg-partial {
 	background: rgba(255,255,255,0.6);
-	height: 100vh;
+	min-height: 100vh;
 }
 
 .brand-img {
@@ -71,7 +86,6 @@ p.description {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    margin-bottom: 20px;
 
     .caption {
 	    font-size: 1.3em;
