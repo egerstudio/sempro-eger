@@ -12,16 +12,13 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-        	'title' => 'Laura Dern',
+        	'title' => 'Female',
         	]);
        	DB::table('categories')->insert([
-        	'title' => 'Maggie Gyllenhaal',
+        	'title' => 'Male',
         	]);
        	DB::table('categories')->insert([
-        	'title' => 'Eddie Redmayne',
-        	]);
-       	DB::table('categories')->insert([
-        	'title' => 'Jane Fonda',
+        	'title' => 'Mixed',
         	]);
     }
 }

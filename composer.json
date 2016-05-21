@@ -14,7 +14,8 @@
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
-        "alaouy/youtube": "dev-master"
+        "alaouy/youtube": "dev-master",
+        "nesbot/carbon": "~1.18"
     },
     "autoload": {
         "classmap": [

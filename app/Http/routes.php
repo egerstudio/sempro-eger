@@ -13,9 +13,11 @@
 
 Route::get('/', 'VideosController@index');
 
-Route::get('/videos', 'VideosController@index');
+Route::get('/video/{video}', 'VideosController@show');
 
-Route::get('/videos/{video}', 'VideosController@show');
+Route::get('/{category}', 'VideosController@categoryIndex');
+
+Route::get('/archive/{year}', 'VideosController@archiveIndex');
 
 Route::auth();
 

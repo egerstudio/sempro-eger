@@ -74,9 +74,15 @@
         </div>
     </nav>
 
-    <div class="container bg-partial">
-    @yield('content')
-    </div>
+    <section id="content">
+        <div class="container bg-partial">
+            @yield('content')
+        </div>
+    </section>
+
+    <section id="footer">
+       
+    </section>
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
