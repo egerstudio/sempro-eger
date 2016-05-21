@@ -8,7 +8,9 @@
 </div>
 <div class="row">
 	<div class="col-md-12">
+		@if ($video->category)
 		<h4><small>CATEGORY: </small>{{ $video->category->title }}</h4>
+		@endif
 		<h2>{{ $video->youtubeDetails()->snippet->localized->title }}</h2>
 		<!-- tags -->
 		<p>
