@@ -6,12 +6,7 @@
 			<a class="video-listing-item" href="/video/{{$video->slug}}" style="background-image: url('{{ $video->youtubeDetails()->snippet->thumbnails->maxres->url }}');">
 				<span class="caption">{{ $video->title }}</span>
 			</a>
-			@if (Auth::user())
-				<div class="btn-group btn-group-xs edit-video" role="group" aria-label="Administrator options for video: {{$video->title}}">
-					<a class="btn btn-default edit-btn"><i class="fa fa-btn fa-cog"></i> Edit video</a>
-					<a class="btn btn-default edit-btn"><i class="fa fa-btn fa-trash"></i> Delete video</a>
-				</div>
-			@endif
+			@include('backend.parts._adminOptionsOnVideo')
 		</div>
 	@endforeach
 	</div> <!-- end row listing -->

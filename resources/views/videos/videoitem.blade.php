@@ -3,8 +3,17 @@
 <!-- 16:9 aspect ratio -->
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{ $video->youtube_id }}?showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
-  
 </div>
+@if (Auth::user())
+<div class="row">
+	<div class="col-md-12">
+		<div class="well">
+			<a href="/backend/videos/{{$video->id}}/edit" class="btn btn-default">Edit this video</a>
+			<a href="/backend/videos/{{$video->id}}/delete" class="btn btn-default">Delete this video</a>
+		</div>
+	</div>
+</div>
+@endif
 <div class="row">
 	<div class="col-md-12">
 		<h3><small>CATEGORY: </small><span class="label label-default">{{ $video->category->title }}</span></h3>

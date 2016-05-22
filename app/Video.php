@@ -8,6 +8,16 @@ use Carbon\Carbon;
 
 class Video extends Model
 {
+
+	protected $fillable = [
+		'youtube_id',
+		'title',
+		'slug',
+		'description',
+		'category_id',
+		'youtube_date'
+	];
+	protected $dates = ['youtube_date'];
     
 	public function category()
 	{
@@ -19,6 +29,11 @@ class Video extends Model
 		return $query->where('category_id',$this->category_id)->where('id','<>',$this->id)->orderBy('youtube_date','desc')->limit(3);
 	}
 
+	public function scopeTitle($query)
+	{
+		return $query->orderBy('title','asc');
+	}
+
 	public function youtubeDetails()
 	{
 		return $video = Youtube::getVideoInfo($this->youtube_id);
@@ -26,10 +41,7 @@ class Video extends Model
 
 	public function publishedDateForHumans()
 	{
-		$video = Youtube::getVideoInfo($this->youtube_id);
-		$time = strtotime($video->snippet->publishedAt);
-		$ct = Carbon::createFromTimestamp($time);
-		return $ct->diffForHumans().' on a '.$ct->format('l');
+		return $this->youtube_date->diffForHumans().' on a '.$this->youtube_date->format('l');
 	}
 
 	public function distinctYears()

@@ -14,6 +14,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->composeToolbar();
+        $this->composeBackendCategory();
     }
 
     /**
@@ -34,5 +35,15 @@ class ViewComposerServiceProvider extends ServiceProvider
     private function composeToolbar() 
     {
         view()->composer('parts.toolbar', 'App\Http\Composers\ToolbarComposer');
+    }
+
+    /**
+     * Compose the backend categories
+     *
+     * @return void
+     */
+    private function composeBackendCategory() 
+    {
+        view()->composer('backend.parts.categorySidebar', 'App\Http\Composers\BackendCategorySidebarComposer');
     }
 }

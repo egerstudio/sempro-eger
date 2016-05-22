@@ -66,6 +66,12 @@
     <section id="content">
         <div class="container bg-partial">
             <div class="row text-center">
+                <!-- Flash message -->
+                @if (session('flash_message'))
+                    <div class="alert alert-success">{{session('flash_message')}}</div>
+                @endif
+
+                <!-- Toolbar -->
                 @include('parts.toolbar')
             </div>
             @yield('content')

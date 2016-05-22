@@ -4,7 +4,7 @@ namespace App\Http\Composers;
 
 use Illuminate\Contracts\View\View;
 
-class ToolbarComposer {
+class BackendCategorySidebarComposer {
 
 	/**
      * Compose the category and archive toolbar
@@ -13,8 +13,7 @@ class ToolbarComposer {
      */
 	public function compose($view)
 	{
-		$view->with('years', \App\Video::first())
-			 ->with('categories', \App\Category::title()->with('videos')->get());
+		$view->with('categories', \App\Category::title()->get());
 	}
 
 }

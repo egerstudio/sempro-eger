@@ -108,6 +108,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'category_id' => 'category',
+        'youtube_id' => 'YouTube ID',
+        'youtube_date' => 'published date'
+    ],
 
 ];
