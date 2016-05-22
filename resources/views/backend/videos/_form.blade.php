@@ -8,7 +8,7 @@
 		</span>
 	</div>
 	{{-- should we preview?? --}}
-	@if (isset($readonly))
+	@if ($readonly)
 	<div class="col-sm-4">
 		<div class="embed-responsive embed-responsive-16by9">
 		  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{ $video->youtube_id }}?showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>

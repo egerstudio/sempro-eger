@@ -24,7 +24,7 @@
 				<!-- Form open -->
 				{!! Form::open(array('url' => 'backend/videos', 'class' => 'form-horizontal')) !!}
 
-					@include ('backend.videos._form', ['submitButtonText' => 'Add video'])
+					@include ('backend.videos._form', ['submitButtonText' => 'Add video','readonly' => false])
 
 				<!-- Form close -->
 				{!! Form::close() !!}
