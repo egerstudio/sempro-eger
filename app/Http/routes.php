@@ -17,6 +17,8 @@ Route::auth();
 
 Route::resource('backend/categories', 'BackendCategoriesController');
 Route::resource('backend/videos', 'BackendVideosController');
+Route::get('backend/profile', 'BackendController@editProfile');
+Route::post('backend/profile', 'BackendController@updateProfile');
 
 Route::get('/video/{video}', 'VideosController@show');
 

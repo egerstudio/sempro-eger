@@ -21,7 +21,7 @@
         <div class="container">
             <div class="navbar-header">
 
-                @if (Auth::user())
+                
                 <!-- Show collapsed hamburger if the user is logged in, no menu items to collapse otherwise -->
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @endif
+                
 
                 <!-- Branding -->
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -53,7 +53,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-cog"></i> Profile</a></li>
+                                <li><a href="{{ url('/backend/profile') }}"><i class="fa fa-btn fa-cog"></i> Profile</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Logout</a></li>
                             </ul>
                         </li>

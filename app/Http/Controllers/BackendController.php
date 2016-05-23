@@ -28,4 +28,26 @@ class BackendController extends Controller
         return view('backend');
     }
 
+    /**
+     * Edit the user profile.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function editProfile()
+    {
+        flash()->success('Updated!', 'We have updated your details');
+        return view('backend.profile.index');
+    }
+
+    /**
+     * Update the user profile.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateProfile()
+    {
+
+        return view('backend.profile.index');
+    }
+
 }
