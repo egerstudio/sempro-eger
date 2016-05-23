@@ -36,5 +36,14 @@
 		</div>
 	</div>
 </div>
+@endsection
 
+@section('scripts')
+<script type="text/javascript">
+$(document).ready( function() {
+    $("#inputTitle").stringToSlug({
+    	getPut: '#slug'
+    });
+});
+</script>
 @endsection

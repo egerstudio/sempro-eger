@@ -42,6 +42,7 @@ class BackendCategoriesController extends Controller
     /**
      * Edit an existing category
      *
+     * @param \App\Category $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -53,32 +54,29 @@ class BackendCategoriesController extends Controller
     /**
      * Store a new category
      *
-     * @param CreateCategoryRequest $request
+     * @param CategoryRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryRequest $request)
     {
         Category::create($request->all());
-        session()->flash('flash_message','Your category has been created');
-        return redirect('backend/categories')->with([
-                'flash_message' => 'Your category has been updates',
-                'flash_message_important' => true
-            ]);
+        flash()->success('Yay!', 'Your category has been added');
+        return redirect('backend/categories');
     }
 
     /**
      * Update and existing category
      *
-     * @param CreateCategoryRequest $request
+     * @param \App\Category $id
+     * @param CategoryRequest $request
      * @return \Illuminate\Http\Response
      */
     public function update($id, CategoryRequest $request)
     {
         $category = Category::findOrFail($id);
         $category->update($request->all());
-        return redirect()->back()->with([
-                'flash_message' => 'Your category has been updated'
-            ]);
+        flash()->success('Success!', 'Your category has been updated');
+        return redirect()->back();
     }
 
 

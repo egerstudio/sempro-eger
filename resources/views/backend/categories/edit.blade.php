@@ -27,7 +27,7 @@
 				<!-- Form open -->
 				{!! Form::model($category, ['method' => 'PATCH', 'action' => ['BackendCategoriesController@update', $category->id], 'class' => 'form-horizontal']) !!}
 
-					@include ('backend.categories._form', ['submitButtonText' => 'Update category'])
+					@include ('backend.categories._form', ['submitButtonText' => 'Update category', 'showDeleteButton' => true])
 
 				<!-- Form close -->
 				{!! Form::close() !!}
@@ -36,5 +36,14 @@
 		</div>
 	</div>
 </div>
+@endsection
 
+@section('scripts')
+<script type="text/javascript">
+$(document).ready( function() {
+    $("#inputTitle").stringToSlug({
+    	getPut: '#slug'
+    });
+});
+</script>
 @endsection

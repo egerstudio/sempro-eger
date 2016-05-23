@@ -24,4 +24,4 @@ Route::get('/{category}', 'VideosController@categoryIndex');
 
 Route::get('/archive/{year}', 'VideosController@archiveIndex');
 
-
+Route::get('api/youtubedetails/', 'AjaxController@YouTubeDetails');

@@ -13,6 +13,7 @@
 
     <!-- Bootstrap & styles -->
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/libs.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -66,11 +67,6 @@
     <section id="content">
         <div class="container bg-partial">
             <div class="row text-center">
-                <!-- Flash message -->
-                @if (session('flash_message'))
-                    <div class="alert alert-success">{{session('flash_message')}}</div>
-                @endif
-
                 <!-- Toolbar -->
                 @include('parts.toolbar')
             </div>
@@ -83,7 +79,8 @@
     </section>
 
     <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/libs.js') }}"></script> 
+    @yield('scripts')
+    @include('flash')
 </body>
 </html>

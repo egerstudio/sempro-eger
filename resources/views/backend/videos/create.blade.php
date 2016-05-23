@@ -35,3 +35,43 @@
 </div>
 
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+	$('#youtubeId').keyup(function(){
+		if($('#youtubeId').val().length > 5) {
+			getDetails();
+		}
+	});
+
+	$("#inputTitle").stringToSlug({
+    	getPut: '#slug'
+    });
+
+});
+
+function getDetails(){
+
+	//get id
+	var id = $('#youtubeId').val();
+
+	$.ajax({
+      url: '../../api/youtubedetails',
+      type: "get",
+      dataType: 'json',
+      data: {'id': id, '_token': $('input[name=_token]').val()},
+      success: function(data){
+        // insert values in fields
+        console.log(data);
+        $('#inputTitle').val(data[0].title);
+        $('#slug').val(data[0].slug);
+        $('#description').val(data[0].description);
+        $('#youtube_date').val(data[0].youtube_date);
+      }
+    });  
+}
+</script>
+@endsection

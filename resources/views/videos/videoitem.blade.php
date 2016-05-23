@@ -8,15 +8,15 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="well">
-			<a href="/backend/videos/{{$video->id}}/edit" class="btn btn-default">Edit this video</a>
-			<a href="/backend/videos/{{$video->id}}/delete" class="btn btn-default">Delete this video</a>
+			<a href="/backend/videos/{{$video->id}}/edit" class="btn btn-primary">Edit this video</a>
+			<a href="/backend/videos/{{$video->id}}/delete" class="btn btn-danger pull-right">Delete this video</a>
 		</div>
 	</div>
 </div>
 @endif
 <div class="row">
 	<div class="col-md-12">
-		<h3><small>CATEGORY: </small><span class="label label-default">{{ $video->category->title }}</span></h3>
+		<h3><small>CATEGORY: </small><span class="label label-default"><a href="{{ action('VideosController@categoryIndex',['category' => $video->category->slug]) }}">{{ $video->category->title }}</a></span></h3>
 		<h2>{{ $video->youtubeDetails()->snippet->localized->title }}</h2>
 		<!-- tags -->
 		<p>
@@ -27,7 +27,7 @@
 		<!-- description -->
 		<div class="well">
 			<p>
-				<small>Viewed {{$video->youtubeDetails()->statistics->viewCount }} times, published {{ $video->publishedDateforHumans() }}.</small>
+				<small>Viewed {{$video->youtubeDetails()->statistics->viewCount }} times on YouTube and elsewhere, published {{ $video->publishedDateforHumans() }}.</small>
 			</p>
 			<p class="description">
 				{!! nl2br($video->youtubeDetails()->snippet->localized->description) !!}

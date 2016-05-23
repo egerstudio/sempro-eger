@@ -11,7 +11,7 @@
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<p>Please fill in the following fields to add a new video.</p>
+						<p>Please update the following fields to edit your video.</p>
 					</div>
 				</div>
 
@@ -24,7 +24,7 @@
 				<!-- Form open -->
 				{!! Form::model($video, ['method' => 'PATCH', 'action' => ['BackendVideosController@update', $video->id], 'class' => 'form-horizontal']) !!}
 
-					@include ('backend.videos._form', ['submitButtonText' => 'Save changes to video', 'readonly' => 'readonly'])
+					@include ('backend.videos._form', ['submitButtonText' => 'Save changes to video', 'readonly' => 'readonly', 'showDeleteButton' => true])
 
 				<!-- Form close -->
 				{!! Form::close() !!}
@@ -34,4 +34,14 @@
 	</div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+$(document).ready( function() {
+    $("#inputTitle").stringToSlug({
+    	getPut: '#slug'
+    });
+});
+</script>
 @endsection

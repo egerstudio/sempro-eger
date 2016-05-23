@@ -3,7 +3,7 @@
 	<div class="row">
 	@foreach ($videos as $video)
 		<div class="col-sm-6 col-md-4">
-			<a class="video-listing-item" href="/video/{{$video->slug}}" style="background-image: url('{{ $video->youtubeDetails()->snippet->thumbnails->maxres->url }}');">
+			<a class="video-listing-item" href="/video/{{$video->slug}}" style="background-image: url('{{ $video->youtubeDetails()->snippet->thumbnails->high->url }}');">
 				<span class="caption">{{ $video->title }}</span>
 			</a>
 			@include('backend.parts._adminOptionsOnVideo')

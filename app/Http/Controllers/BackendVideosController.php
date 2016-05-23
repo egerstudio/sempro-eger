@@ -39,19 +39,20 @@ class BackendVideosController extends Controller
     public function create()
     {
 
-        $categories = Category::lists('title');
+        $categories = Category::lists('title','id');
         return view('backend.videos.create',compact('categories'));
     }
 
     /**
      * Edit an existing video
      *
+
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $video = Video::findOrFail($id);
-        $categories = Category::lists('title');
+        $categories = Category::lists('title','id');
         return view('backend.videos.edit',['video' => $video, 'categories' => $categories]);
     }
 
@@ -64,10 +65,8 @@ class BackendVideosController extends Controller
     public function store(VideoRequest $request)
     {
         Video::create($request->all());
-        return redirect('backend/videos')->with([
-                'flash_message' => 'Your video has been added',
-                'flash_message_important' => true
-            ]);
+        flash()->success('Hurrah!', 'Your video is saved', 'success');
+        return redirect('backend/videos');
     }
 
     /**
@@ -80,9 +79,8 @@ class BackendVideosController extends Controller
     {
         $video = Video::findOrFail($id);
         $video->update($request->all());
-        return redirect()->back()->with([
-                'flash_message' => 'Your video has been updated'
-            ]);
+        flash()->success('Yay!', 'Your video is updated');
+        return redirect()->back();
     }
 
 
