@@ -1,12 +1,20 @@
 @extends('layouts.default')
 @section('content')
 	<div class="row">
+	@if ($featuredVideo && $videos->currentPage() == 1)
+	<div class="col-md-8 col-md-offset-2">
+		<a class="video-listing-item -featured" href="/video/{{$featuredVideo->slug}}" style="background-image: url('{{ $featuredVideo->youtubeDetails()->snippet->thumbnails->maxres->url }}');">
+				<span class="caption">{{ $featuredVideo->title }}</span>
+			</a>
+			@include('backend.partials._adminOptionsOnFeaturedVideo')
+		</div>
+	@endif
 	@foreach ($videos as $video)
 		<div class="col-sm-6 col-md-4">
 			<a class="video-listing-item" href="/video/{{$video->slug}}" style="background-image: url('{{ $video->youtubeDetails()->snippet->thumbnails->high->url }}');">
 				<span class="caption">{{ $video->title }}</span>
 			</a>
-			@include('backend.parts._adminOptionsOnVideo')
+			@include('backend.partials._adminOptionsOnVideo')
 		</div>
 	@endforeach
 	</div> <!-- end row listing -->

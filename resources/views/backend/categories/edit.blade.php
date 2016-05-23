@@ -4,7 +4,7 @@
 <hr>
 <div class="row">
 	<div class="col-md-3 col-sm-4">
-		@include('backend.parts.categorySidebar')
+		@include('backend.partials.categorySidebar')
 	</div>
 	<div class="col-md-9 col-sm-8">
 		<div class="panel panel-default">
@@ -32,6 +32,7 @@
 				<!-- Form close -->
 				{!! Form::close() !!}
 
+
 			</div>
 		</div>
 	</div>
@@ -39,11 +40,17 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
-$(document).ready( function() {
-    $("#inputTitle").stringToSlug({
-    	getPut: '#slug'
-    });
-});
-</script>
+	
+	<!-- slugging it -->
+	<script type="text/javascript">
+	$(document).ready( function() {
+	    $("#inputTitle").stringToSlug({
+	    	getPut: '#slug'
+	    });
+	});
+	</script>
+
+	<!-- sweet alert confirm dialog -->
+	@include('partials.js.delete')
+
 @endsection

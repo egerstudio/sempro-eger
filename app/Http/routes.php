@@ -16,10 +16,15 @@ Route::get('/', 'VideosController@index');
 Route::auth();
 
 Route::resource('backend/categories', 'BackendCategoriesController');
+Route::get('backend/categories/move' ,'BackendCategoriesController@move');
+Route::post('backend/categories/move/all' ,'BackendCategoriesController@moveAll');
+
 Route::resource('backend/videos', 'BackendVideosController');
+
 Route::get('backend/profile', 'BackendController@editProfile');
 Route::post('backend/profile', 'BackendController@updateProfile');
 
+// front-end
 Route::get('/video/{video}', 'VideosController@show');
 
 Route::get('/{category}', 'VideosController@categoryIndex');

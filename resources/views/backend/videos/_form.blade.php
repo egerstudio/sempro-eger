@@ -56,16 +56,29 @@
 	</div>
 </div>
 
+<!-- Featured video form input  -->
+<div class="form-group">	
+	<div class="col-sm-8 col-sm-offset-2">
+		<div class="checkbox">
+		    <label>
+		      {!! Form::checkbox('featured',1,$video->featured) !!} Make this a featured video (overrides current selection if it exists)
+		    </label>
+		</div>
+	</div>
+</div>
+
 <!-- Youtube date form input  -->
 <div class="form-group">
 	{!! Form::label('youtube_date','Published date: ', ['class' => 'col-sm-2 control-label']) !!}
 	<div class="col-sm-8">
 		{!! Form::text('youtube_date', null, ['class' => 'form-control','aria-describedby' => 'dateInfo', 'id' => 'youtube_date']) !!}
 		<span id="dateInfo" class="help-block">
-			This field shows the date used to sort the video by. You can manually edit this if you want to change the order in which the videos are sorted.
+			This field shows the date used to sort the video by. You can manually edit this if you want to change the order in which the videos are sorted. Note that the format must be <strong>YYYY-MM-DD HH:MM:SS</strong>.
 		</span>
 	</div>
 </div>
+
+
 
 <!-- Submit form input -->
 <div class="form-group">

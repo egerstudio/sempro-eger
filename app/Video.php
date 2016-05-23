@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Youtube;
 use Carbon\Carbon;
+use App\FeaturedVideo;
 
 class Video extends Model
 {
@@ -15,7 +16,8 @@ class Video extends Model
 		'slug',
 		'description',
 		'category_id',
-		'youtube_date'
+		'youtube_date',
+		'featured'
 	];
 	protected $dates = ['youtube_date'];
     
@@ -23,6 +25,7 @@ class Video extends Model
 	{
 		return $this->belongsTo('App\Category','category_id');
 	}
+
 
 	public function scopeRelatedVideos($query)
 	{
@@ -48,5 +51,13 @@ class Video extends Model
 	{
 		return Video::select(\DB::raw('DISTINCT YEAR(youtube_date) as year'))->get();
 	}
+
+	public function unFeatureOthers()
+	{
+		Video::where('id','<>',$this->id)->update(['featured' => 0]);
+
+	}
+
+	
 
 }

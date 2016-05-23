@@ -23,7 +23,12 @@
 	{!! Form::submit($submitButtonText, ['class' => 'btn btn-primary']) !!}
 
 	@if (isset($showDeleteButton))
-		{!! Form::button('Delete category', ['class' => 'btn btn-danger pull-right']) !!}
+		<a href="/backend/categories/{{$category->id}}"
+					class="btn btn-danger"
+					data-delete="" 
+				    data-title="Deleting category" 
+				    data-message="Do you really want to delete this category?"
+				    data-button-text="Yes, delete it!">Delete category</a>
 	@endif 
 
 	</div>

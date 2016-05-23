@@ -17,8 +17,15 @@ class VideosController extends Controller
      */
     public function index()
     {
-    	$videos = Video::orderBy('youtube_date','desc')->paginate(9);
-    	return view('videos.index',compact('videos'));
+        
+        if($featuredVideo = Video::where('featured',1)->first()) {
+            $videos = Video::where('id','<>',$featuredVideo->id)->orderby('youtube_date','desc')->paginate(9);
+            return view('videos.index',['videos' => $videos, 'featuredVideo' => $featuredVideo]);
+        } else {
+            $videos = Video::orderBy('youtube_date','desc')->paginate(9);
+            return view('videos.index',['videos' => $videos]);
+        }
+    	
     }
 
     /**

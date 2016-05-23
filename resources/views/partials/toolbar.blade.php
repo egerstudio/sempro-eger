@@ -45,7 +45,7 @@
 		</button>
 		<ul class="dropdown-menu">
 			<li><a href="/backend/categories">Show categories</a></li>
-			<li><a href="/backend/categories/create">Add new category</a></li>
+			<li><a href="/backend/categories/create">Add category</a></li>
 		</ul>
 	</div>
 </div>

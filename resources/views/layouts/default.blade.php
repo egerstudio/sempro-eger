@@ -68,7 +68,7 @@
         <div class="container bg-partial">
             <div class="row text-center">
                 <!-- Toolbar -->
-                @include('parts.toolbar')
+                @include('partials.toolbar')
             </div>
             @yield('content')
         </div>

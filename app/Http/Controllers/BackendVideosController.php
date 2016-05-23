@@ -65,6 +65,7 @@ class BackendVideosController extends Controller
     public function store(VideoRequest $request)
     {
         Video::create($request->all());
+        dd($request->all());
         flash()->success('Hurrah!', 'Your video is saved', 'success');
         return redirect('backend/videos');
     }
@@ -79,6 +80,12 @@ class BackendVideosController extends Controller
     {
         $video = Video::findOrFail($id);
         $video->update($request->all());
+
+        if($video->featured == 1) {
+            // set this video as featured on front page
+            $video->unFeatureOthers();
+        }
+        
         flash()->success('Yay!', 'Your video is updated');
         return redirect()->back();
     }

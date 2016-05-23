@@ -34,7 +34,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     private function composeToolbar() 
     {
-        view()->composer('parts.toolbar', 'App\Http\Composers\ToolbarComposer');
+        view()->composer('partials.toolbar', 'App\Http\Composers\ToolbarComposer');
     }
 
     /**
@@ -44,6 +44,6 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     private function composeBackendCategory() 
     {
-        view()->composer('backend.parts.categorySidebar', 'App\Http\Composers\BackendCategorySidebarComposer');
+        view()->composer('backend.partials.categorySidebar', 'App\Http\Composers\BackendCategorySidebarComposer');
     }
 }

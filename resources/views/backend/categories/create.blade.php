@@ -4,7 +4,7 @@
 <hr>
 <div class="row">
 	<div class="col-md-3 col-sm-4">
-		@include('backend.parts.categorySidebar')
+		@include('backend.partials.categorySidebar')
 	</div>
 	<div class="col-md-9 col-sm-8">
 		<div class="panel panel-default">
