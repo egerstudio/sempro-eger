@@ -26,8 +26,7 @@ class BackendVideosController extends Controller
      */
     public function index()
     {
-        $videos = Video::orderBy('youtube_date', 'desc')->paginate(9);
-        return view('videos.index', compact('videos'));
+        return redirect()->action('VideosController@index');
     }
 
     /**
@@ -67,7 +66,7 @@ class BackendVideosController extends Controller
             $video->unFeatureOthers();
         }
         flash()->success('Hurrah!', 'Your video is saved', 'success');
-        return redirect('backend/videos');
+        return redirect()->action('VideosController@index');
     }
 
     /**
@@ -107,6 +106,6 @@ class BackendVideosController extends Controller
         $video = Video::findOrFail($id);
         $video->delete();
         flash()->success('Gone!', 'Your video is deleted', 'success');
-        return redirect('backend/videos');
+        return redirect()->action('VideosController@index');
     }
 }

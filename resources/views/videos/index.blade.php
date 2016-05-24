@@ -3,7 +3,7 @@
 @section('content')
 	<div class="row">
 		<div class="col-md-12">
-			<h1 class="pageTitle">{{$page_title}} <small>{{$page_subtitle or ''}}</small></h1>
+			<h1 class="pageTitle">{{$page_title or ''}} <small>{{$page_subtitle or ''}}</small></h1>
 			<hr>
 		</div>
 	</div>

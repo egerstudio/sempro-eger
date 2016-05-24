@@ -22,14 +22,21 @@
 @endif
 <div class="row">
 	<div class="col-md-12">
-		<h3><small>CATEGORY: </small><a href="{{ action('VideosController@category',['category' => $video->category->slug]) }}"><span class="label label-default">{{ $video->category->title }}</span></a></h3>
-		<h2>{{ $video->title }}</h2>
+		<h2>
+			{{ $video->title }} 
+			<small class="pull-right">Category: 
+			<a href="{{ action('VideosController@category',['category' => $video->category->slug]) }}">
+				{{ $video->category->title }}
+			</a>
+			</small>
+		</h2>
 		<!-- tags -->
 		<p>
 			@foreach ($video->youtubeDetails()->snippet->tags as $tag)
 			<span class="label label-default">{{ $tag }}</span>
 			@endforeach
 		</p>
+		
 		<!-- description -->
 		<div class="well">
 			<p>
@@ -42,8 +49,8 @@
 		</div>
 	</div>
 </div>
-
 <!-- related videos go here -->
+
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">
@@ -62,6 +69,7 @@
 			</div>
 		</div>
 	</div>
+
 @endsection
 
 @section('scripts')
