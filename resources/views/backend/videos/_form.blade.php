@@ -7,14 +7,14 @@
 			Type in the Youtube ID of the video you want to add, and the fields below are automatically populated, you can then edit the fields to your liking.
 		</span>
 	</div>
-	{{-- should we preview?? --}}
-	@if (!empty($readonly) && !empty($video))
 	<div class="col-sm-4">
-		<div class="embed-responsive embed-responsive-16by9">
-		  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{ $video->youtube_id }}?showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+		<div class="embed-responsive embed-responsive-16by9" id="youtube_preview">
+			{{-- should we preview?? --}}
+			@if (!empty($readonly) && !empty($video))
+			  {!! $video->youtubeDetails()->player->embedHtml !!}
+			@endif
 		</div>
 	</div>
-	@endif
 </div>
 
 <!-- Title form input -->

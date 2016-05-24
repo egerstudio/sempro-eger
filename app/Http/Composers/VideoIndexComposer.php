@@ -27,7 +27,7 @@ class VideoIndexComposer {
 		 * Get limit through queryscope and return with paginate
 		 */
 		if(!empty($params['year'])){
-			$view->with('videos', Video::limitYear($params['year'])->paginate(9));
+			$view->with('videos', Video::limitYear($params['year'])->sort()->paginate(9));
 		}
 
 		/**
@@ -35,7 +35,7 @@ class VideoIndexComposer {
 		 * Get limit through queryscope and return with paginate
 		 */
 		if(!empty($params['category'])){
-			$view->with('videos', Video::limitCategory($params['category'])->paginate(9));
+			$view->with('videos', Video::limitCategory($params['category'])->sort()->paginate(9));
 		}
 		
 		/**
@@ -45,7 +45,7 @@ class VideoIndexComposer {
 		 */
 		if(empty($params)){
 			$view->with('featuredVideo', Video::limitFeatured()->first())
-				 ->with('videos',Video::limitNotFeatured()->paginate(9));
+				 ->with('videos',Video::limitNotFeatured()->sort()->paginate(9));
 		}
 		
 	}

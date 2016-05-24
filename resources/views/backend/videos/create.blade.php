@@ -54,7 +54,6 @@ $(document).ready(function(){
 });
 
 function getDetails(){
-
 	//get id
 	var id = $('#youtubeId').val();
 
@@ -63,13 +62,20 @@ function getDetails(){
       type: "get",
       dataType: 'json',
       data: {'id': id, '_token': $('input[name=_token]').val()},
+      error: function(){
+            $('#statusText').html('<i class="fa fa-spinner" aria-hidden="true"></i> Not found');
+      },
       success: function(data){
+      		$('#statusText').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Searching...');
         // insert values in fields
         console.log(data);
+        
         $('#inputTitle').val(data[0].title);
         $('#slug').val(data[0].slug);
         $('#description').val(data[0].description);
         $('#youtube_date').val(data[0].youtube_date);
+        $('#youtube_preview').html(data[0].youtube_preview);
+	    
       }
     });  
 }

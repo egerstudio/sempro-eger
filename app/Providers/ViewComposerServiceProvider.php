@@ -14,7 +14,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->composeVideoIndex();
-        $this->composeToolbar();
+        $this->composeNav();
         $this->composeBackendCategory();
     }
 
@@ -43,9 +43,9 @@ class ViewComposerServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    private function composeToolbar()
+    private function composeNav()
     {
-        view()->composer('partials.toolbar', 'App\Http\Composers\ToolbarComposer');
+        view()->composer('partials.nav', 'App\Http\Composers\NavComposer');
     }
 
     /**

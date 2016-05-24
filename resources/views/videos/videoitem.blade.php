@@ -2,7 +2,7 @@
 @section('content')
 <!-- 16:9 aspect ratio -->
 <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{ $video->youtube_id }}?showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+  {!! $video->youtubeDetails()->player->embedHtml !!}
 </div>
 @if (Auth::user())
 <div class="row">
@@ -23,7 +23,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3><small>CATEGORY: </small><a href="{{ action('VideosController@category',['category' => $video->category->slug]) }}"><span class="label label-default">{{ $video->category->title }}</span></a></h3>
-		<h2>{{ $video->youtubeDetails()->snippet->localized->title }}</h2>
+		<h2>{{ $video->title }}</h2>
 		<!-- tags -->
 		<p>
 			@foreach ($video->youtubeDetails()->snippet->tags as $tag)
@@ -36,7 +36,7 @@
 				<small>Viewed {{$video->youtubeDetails()->statistics->viewCount }} times on YouTube and elsewhere, published {{ $video->publishedDateforHumans() }}.</small>
 			</p>
 			<p class="description">
-				{!! nl2br($video->youtubeDetails()->snippet->localized->description) !!}
+				{!! nl2br($video->description) !!}
 				<!-- nl2br to keep <br> in text -->
 			</p>
 		</div>

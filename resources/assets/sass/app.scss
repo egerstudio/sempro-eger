@@ -9,8 +9,12 @@ $font-family-sans-serif: 'Lato', sans-serif;
 $body-bg: transparent;
 
 $navbar-default-bg: transparent;
-$navbar-default-border: 0px;
-$navbar-height: 70px;
+$navbar-default-border: 1px;
+$navbar-height: 165px;
+
+$navbar-padding-vertical: 0 0;
+$navbar-padding-horizontal: 0 0;
+$navbar-margin-bottom: 0;
 
 $pagination-color: #333;
 $pagination-hover-color: #fff;
@@ -24,6 +28,18 @@ $btn-primary-bg: #666;
 
 $link-color: #666;
 
+section#content {
+    border-top: 1px solid #ccc;
+}
+
+.navbar {
+    // filled with background image randomly by php // background: url(../../images/logotestbar.jpg) no-repeat top center fixed;
+}
+
+img.brand {
+    width: 300px;
+    min-height: 165px;
+}
 
 html {
 	background: url(../../images/background.jpg) no-repeat bottom right fixed; 
@@ -65,22 +81,13 @@ p.description {
 
 .video-listing-item {
     position: relative;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    width: 100%;
     height: 200px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
 
     .caption {
 	    font-size: 1.3em;
@@ -97,7 +104,7 @@ p.description {
 }
 
 .video-listing-item.-featured {
-    height: 250px;
+    height: 400px;
 
     .caption {
         font-size: 2em;
@@ -125,11 +132,17 @@ p.description {
     margin-top: -16px;
 }
 
-@media (min-width:48em) {
-    .video-listing-item.-featured {
-        height: 380px
-    }
+@media (max-width: 480px) {
+    
+    
 }
+
+@media only screen and (max-width: 60em) {
+  .video-listing-item {
+        height: 300px;
+        }
+}
+
 
 .video-listing-item:hover .icon-play-video {
     -webkit-transform: scale(1.1);

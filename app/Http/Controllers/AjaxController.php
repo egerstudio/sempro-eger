@@ -19,9 +19,9 @@ class AjaxController extends Controller
     public function YouTubeDetails(Request $request)
     {
         $id = $request->id;
-        $video = Youtube::getVideoInfo($id);
+        
 
-        if ($video->kind == 'youtube#video') {
+        if ($video = Youtube::getVideoInfo($id)) {
             // we have a valid video, return the video
             $data = array(
                 'status' => 'ok',
@@ -29,8 +29,11 @@ class AjaxController extends Controller
                 'slug' => str_slug($video->snippet->title),
                 'description' => $video->snippet->description,
                 'youtube_date' => date('Y-m-d H:i:s', strtotime($video->snippet->publishedAt)),
+                'youtube_preview' => $video->player->embedHtml,
             );
             return json_encode(array($data));
+        } else {
+            return json_encode(array('status' => 'notfound'));
         }
     }
 }

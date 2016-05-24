@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Youtube;
 use Carbon\Carbon;
 use App\FeaturedVideo;
+use Str;
 
 class Video extends Model
 {
@@ -70,7 +71,7 @@ class Video extends Model
     public function scopeLimitCategory($query, $category)
     {
         $cat = Category::where('slug', '=', $category)->firstOrFail();
-        return $query->where('category_id', $cat->id)->orderBy('youtube_date', 'desc');
+        return $query->where('category_id', $cat->id);
     }
 
     /**
@@ -94,6 +95,16 @@ class Video extends Model
     }
 
     /**
+     * Queryscope for sorting videos based on date
+     * @param $query
+     * @return $query
+     */
+    public function scopeSort($query)
+    {
+        return $query->orderBy('youtube_date', 'desc');
+    }
+
+    /**
      * Function for accessing YouTube details through facade of YouTubeServiceProvider
      * @return Alaouy\Youtube instance
      */
@@ -112,12 +123,12 @@ class Video extends Model
     }
 
     /**
-     * Find distinct years to use in toolbar
+     * Find distinct years to use in toolbar, sort asc
      * @return App/Video collection
      */
     public function distinctYears()
     {
-        return Video::select(\DB::raw('DISTINCT YEAR(youtube_date) as year'))->get();
+        return Video::select(\DB::raw('DISTINCT YEAR(youtube_date) as year'))->orderBy('youtube_date','asc')->get();
     }
 
     /**
@@ -137,5 +148,20 @@ class Video extends Model
     {
         $this->featured = 0;
         $this->save();
+    }
+
+    /**
+     * Create a conversation slug.
+     *
+     * @param  string $title
+     * @return string
+     */
+    public function makeSlugFromTitle($title)
+    {
+        $slug = Str::slug($title);
+
+        $count = Video::whereRaw("slug RLIKE '^{$slug}(-[0-9]+)?$'")->count();
+
+        return $count ? "{$slug}-{$count}" : $slug;
     }
 }

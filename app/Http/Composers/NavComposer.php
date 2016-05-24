@@ -4,17 +4,17 @@ namespace App\Http\Composers;
 
 use Illuminate\Contracts\View\View;
 
-class ToolbarComposer {
+class NavComposer {
 
 	/**
-     * Compose the category and archive toolbar
+     * Compose the navbar
      *
      * @return void
      */
 	public function compose($view)
 	{
 		$view->with('years', \App\Video::first())
-			 ->with('categories', \App\Category::title()->with('videos')->get());
+			 ->with('categories', \App\Category::title()->orderBy('title')->with('videos')->get());
 	}
 
 }
