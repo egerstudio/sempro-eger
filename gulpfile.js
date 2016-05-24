@@ -21,7 +21,8 @@ elixir(function(mix) {
     		'libs/jquery.stringtoslug.min.js',
     	], './public/js/libs.js')
     	.styles([
-    		'libs/sweetalert.css'
+    		'libs/sweetalert.css',
+            'libs/font-awesome.min.css',
     	], './public/css/libs.css')
     	.version(['css/app.css']);
 });
