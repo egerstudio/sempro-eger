@@ -5,10 +5,35 @@
  *
  */
 section#content {
-  border-top: 1px solid #ccc; }
+  border-top: 1px solid #ccc;
+  padding-top: 10px; }
+
+.nav-bg-01 {
+  background: url(../../images/navbg01.jpg) no-repeat top center fixed; }
+
+.nav-bg-02 {
+  background: url(../../images/navbg02.jpg) no-repeat top center fixed; }
+
+.nav-bg-03 {
+  background: url(../../images/navbg03.jpg) no-repeat top center fixed; }
+
+.nav-bg-04 {
+  background: url(../../images/navbg04.jpg) no-repeat top center fixed; }
+
+.nav-bg-05 {
+  background: url(../../images/navbg05.jpg) no-repeat top center fixed; }
+
+#navbar-bottom {
+  position: relative;
+  height: 195px; }
+  #navbar-bottom .nav {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: red; }
 
 img.brand {
-  width: 300px;
+  width: 400px;
   min-height: 165px; }
 
 html {
@@ -25,10 +50,6 @@ p.description {
 .bg-partial {
   background: rgba(255, 255, 255, 0.6);
   min-height: 100vh; }
-
-.brand-img {
-  width: 180px;
-  height: 55px; }
 
 .categories-list {
   margin: 10px 0;

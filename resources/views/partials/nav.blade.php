@@ -1,13 +1,14 @@
 <?php
-$bg = array('../../images/navbg01.jpg', 
-            '../../images/navbg02.jpg',
-            '../../images/navbg03.jpg',
-            '../../images/navbg04.jpg',
-            '../../images/navbg05.jpg');
+// just for fun, not important
+$bg = array('nav-bg-01', 
+            'nav-bg-02',
+            'nav-bg-03',
+            'nav-bg-04',
+            'nav-bg-05');
 $i = rand(0, count($bg)-1);
 $selectedBg = "$bg[$i]";
 ?>
-<nav class="navbar navbar-default" style="background: url('{{$selectedBg}}') no-repeat top center fixed ;">
+<nav class="navbar navbar-default {{$selectedBg}}">
         
         <div class="container">
             
@@ -31,6 +32,7 @@ $selectedBg = "$bg[$i]";
             <!-- navbar-header end -->
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            
                 <ul class="nav navbar-nav">
     
                     <!-- all videos -->
@@ -75,14 +77,12 @@ $selectedBg = "$bg[$i]";
                 <!-- archive and categories -->
                 <ul class="nav navbar-nav navbar-right">
                     @if (Auth::user())
-                    <!-- videos -->
-                    <li>
-                        <a href="{{ action('BackendVideosController@create') }}">Add a video</a>
-                    </li>
-                    <!-- categories -->
+
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ADMINISTRATOR <span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            <li><a href="{{ action('BackendVideosController@create') }}">Add a video</a></li>
+                            <li role="separator" class="divider"></li>
                             <li><a href="{{ action('BackendCategoriesController@index') }}">Show categories</a></li>
                             <li><a href="{{ action('BackendCategoriesController@create') }}">Add category</a></li>
                         </ul>
