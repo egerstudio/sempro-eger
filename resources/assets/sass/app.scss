@@ -10,7 +10,7 @@ $body-bg: transparent;
 
 $navbar-default-bg: transparent;
 $navbar-default-border: 1px;
-$navbar-height: 165px;
+$navbar-height: 220px;
 $navbar-font-family: $font-family-sans-serif;
 $navbar-font-size: 15px;
 $navbar-font-weight: 300;
@@ -42,17 +42,17 @@ section#content {
     font-weight: $navbar-font-weight;    
 }
 
-.nav-bg-01 { background: url(../../images/navbg01.jpg) no-repeat top center fixed; }
-.nav-bg-02 { background: url(../../images/navbg02.jpg) no-repeat top center fixed; }
-.nav-bg-03 { background: url(../../images/navbg03.jpg) no-repeat top center fixed; }
-.nav-bg-04 { background: url(../../images/navbg04.jpg) no-repeat top center fixed; }
-.nav-bg-05 { background: url(../../images/navbg05.jpg) no-repeat top center fixed; }
+.nav-bg-01 { background: url(../../images/navbg01.jpg) no-repeat top left ; }
+.nav-bg-02 { background: url(../../images/navbg02.jpg) no-repeat top left ; }
+.nav-bg-03 { background: url(../../images/navbg03.jpg) no-repeat top left ; }
+.nav-bg-04 { background: url(../../images/navbg04.jpg) no-repeat top left ; }
+.nav-bg-05 { background: url(../../images/navbg05.jpg) no-repeat top left ; }
+.nav-bg-06 { background: url(../../images/navbg06.jpg) no-repeat top left ; }
+.nav-bg-07 { background: url(../../images/navbg07.jpg) no-repeat top left ; }
 
 
 
 img.brand {
-    width: 400px;
-    min-height: 100px;
 }
 
 html {

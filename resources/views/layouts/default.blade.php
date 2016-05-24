@@ -18,7 +18,11 @@
 </head>
 <body>
     <!-- navigation -->
-    @include('partials.nav')
+    <section id="navigation">
+        <div class="container">
+            @include('partials.nav')
+        </div>
+    </section>
 
     <section id="content">
         <div class="container bg-partial">

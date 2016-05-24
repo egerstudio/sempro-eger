@@ -1,10 +1,13 @@
 <?php
 // just for fun, not important
-$bg = array('nav-bg-01', 
+$bg = array('nav-bg-01',
             'nav-bg-02',
             'nav-bg-03',
             'nav-bg-04',
-            'nav-bg-05');
+            'nav-bg-05',
+            'nav-bg-06',
+            'nav-bg-07',
+            );
 $i = rand(0, count($bg)-1);
 $selectedBg = "$bg[$i]";
 ?>
@@ -13,8 +16,6 @@ $selectedBg = "$bg[$i]";
         <div class="container">
             
             <div class="navbar-header">
-
-                <!-- Show collapsed hamburger if the user is logged in, no menu items to collapse otherwise -->
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
