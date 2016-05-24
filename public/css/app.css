@@ -8,6 +8,11 @@ section#content {
   border-top: 1px solid #ccc;
   padding-top: 10px; }
 
+.navbar {
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  font-weight: 300; }
+
 .nav-bg-01 {
   background: url(../../images/navbg01.jpg) no-repeat top center fixed; }
 
@@ -23,18 +28,9 @@ section#content {
 .nav-bg-05 {
   background: url(../../images/navbg05.jpg) no-repeat top center fixed; }
 
-#navbar-bottom {
-  position: relative;
-  height: 195px; }
-  #navbar-bottom .nav {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: red; }
-
 img.brand {
   width: 400px;
-  min-height: 165px; }
+  min-height: 100px; }
 
 html {
   background: url(../../images/background.jpg) no-repeat bottom right fixed;
@@ -43,6 +39,14 @@ html {
 p.description {
   font-weight: 400;
   font-size: 21px; }
+
+h1.pageTitle {
+  font-weight: 300;
+  text-transform: capitalize; }
+  h1.pageTitle small {
+    font-weight: 300;
+    text-transform: uppercase;
+    padding-left: 20px; }
 
 .space-toolbar {
   margin-left: 30px; }

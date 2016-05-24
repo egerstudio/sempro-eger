@@ -1,11 +1,17 @@
 @extends('layouts.default')
 
 @section('content')
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="pageTitle">{{$page_title}} <small>{{$page_subtitle or ''}}</small></h1>
+			<hr>
+		</div>
+	</div>
 
 	<div class="row">
 	@if (isset($featuredVideo) && $videos->currentPage() == 1)
 	<div class="col-md-12 featured-wrapper">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<a class="video-listing-item -featured" href="/video/{{$featuredVideo->slug}}" style="background-image: url('{{ $featuredVideo->youtubeDetails()->snippet->thumbnails->maxres->url }}');">
 				<span class="caption">{{ $featuredVideo->title }}</span>
 			</a>

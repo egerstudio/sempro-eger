@@ -11,6 +11,9 @@ $body-bg: transparent;
 $navbar-default-bg: transparent;
 $navbar-default-border: 1px;
 $navbar-height: 165px;
+$navbar-font-family: $font-family-sans-serif;
+$navbar-font-size: 15px;
+$navbar-font-weight: 300;
 
 $navbar-padding-vertical: 0 0;
 $navbar-padding-horizontal: 0 0;
@@ -34,7 +37,9 @@ section#content {
 }
 
 .navbar {
-    // filled with background image randomly by php // background: url(../../images/logotestbar.jpg) no-repeat top center fixed;
+    font-family: $navbar-font-family;
+    font-size: $navbar-font-size;
+    font-weight: $navbar-font-weight;    
 }
 
 .nav-bg-01 { background: url(../../images/navbg01.jpg) no-repeat top center fixed; }
@@ -43,23 +48,11 @@ section#content {
 .nav-bg-04 { background: url(../../images/navbg04.jpg) no-repeat top center fixed; }
 .nav-bg-05 { background: url(../../images/navbg05.jpg) no-repeat top center fixed; }
 
-#navbar-bottom {
-    position: relative;
-    height: 195px;
-
-    .nav {
-    position: absolute; 
-    bottom: 0; 
-    right: 0;
-    background: red;
-}
-
-}
 
 
 img.brand {
     width: 400px;
-    min-height: 165px;
+    min-height: 100px;
 }
 
 html {
@@ -77,6 +70,17 @@ body {
 p.description {
     font-weight: 400;
     font-size: 21px;
+}
+
+h1.pageTitle {
+    font-weight: 300;
+    text-transform: capitalize;
+
+    small{
+        font-weight: 300;
+        text-transform: uppercase;
+        padding-left: 20px;
+    }
 }
 
 .space-toolbar {

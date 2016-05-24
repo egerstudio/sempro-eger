@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Video;
 use App\Category;
 use DB;
+use Route;
 
 class VideosController extends Controller
 {
@@ -17,7 +18,7 @@ class VideosController extends Controller
      */
     public function index()
     {
-        return view('videos.index');
+        return view('videos.index',['page_title' => 'Actors on Actors', 'page_subtitle' => 'viewing all videos']);
     }
 
     /**
@@ -27,7 +28,7 @@ class VideosController extends Controller
      */
     public function archive()
     {
-        return view('videos.index');
+        return view('videos.index',['page_title' => Route::current()->parameter('year'), 'page_subtitle' => 'Browsing Archive']);
     }
 
     /**
@@ -37,7 +38,7 @@ class VideosController extends Controller
      */
     public function category()
     {
-        return view('videos.index');
+        return view('videos.index',['page_title' => Route::current()->parameter('category'), 'page_subtitle' => 'Browsing Category']);
     }
 
     /**
