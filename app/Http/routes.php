@@ -15,20 +15,28 @@ Route::get('/', 'VideosController@index');
 
 Route::auth();
 
+/**
+ * Backend routes for categories, videos and user profile
+ */
 Route::resource('backend/categories', 'BackendCategoriesController');
-Route::get('backend/categories/move' ,'BackendCategoriesController@move');
-Route::post('backend/categories/move/all' ,'BackendCategoriesController@moveAll');
+Route::get('backend/categories/move', 'BackendCategoriesController@move');
+Route::post('backend/categories/move/all', 'BackendCategoriesController@moveAll');
 
 Route::resource('backend/videos', 'BackendVideosController');
 
 Route::get('backend/profile', 'BackendController@editProfile');
 Route::post('backend/profile', 'BackendController@updateProfile');
 
-// front-end
+/**
+ * Front end routes for videos, archives, categories 
+ */
 Route::get('/video/{video}', 'VideosController@show');
 
-Route::get('/{category}', 'VideosController@categoryIndex');
+Route::get('/archive/{year}', 'VideosController@archive');
 
-Route::get('/archive/{year}', 'VideosController@archiveIndex');
+Route::get('/{category}', 'VideosController@category');
 
+/**
+ * API route for getting YouTube details
+ */
 Route::get('api/youtubedetails/', 'AjaxController@YouTubeDetails');

@@ -8,7 +8,7 @@
 		</span>
 	</div>
 	{{-- should we preview?? --}}
-	@if ($readonly && isset($video))
+	@if (!empty($readonly) && !empty($video))
 	<div class="col-sm-4">
 		<div class="embed-responsive embed-responsive-16by9">
 		  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{ $video->youtube_id }}?showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
@@ -48,7 +48,7 @@
 <div class="form-group">
 	{!! Form::label('category_id','Category: ', ['class' => 'col-sm-2 control-label']) !!}
 	<div class="col-sm-8">
-	@if($readonly)
+	@if(!empty($readonly))
 		{!! Form::select('category_id',$categories, $video->category_id, ['class' => 'form-control']) !!}
 	@else
 		{!! Form::select('category_id',$categories, null, ['class' => 'form-control', 'placeholder' => 'Select a category...']) !!}
@@ -61,7 +61,12 @@
 	<div class="col-sm-8 col-sm-offset-2">
 		<div class="checkbox">
 		    <label>
-		      {!! Form::checkbox('featured',1,$video->featured) !!} Make this a featured video (overrides current selection if it exists)
+		    @if(!empty($readonly))
+				{!! Form::checkbox('featured',1,$video->featured) !!} Make this a featured video (overrides current selection if it exists)
+			@else
+				{!! Form::checkbox('featured',1) !!} Make this a featured video (overrides current selection if it exists)
+			@endif
+		      
 		    </label>
 		</div>
 	</div>
@@ -86,7 +91,12 @@
 	{!! Form::submit($submitButtonText, ['class' => 'btn btn-primary']) !!}
 
 	@if (isset($showDeleteButton))
-		{!! Form::button('Delete video', ['class' => 'btn btn-danger pull-right']) !!}
+		<a href="{{ action('BackendVideosController@destroy',['video' => $video->id]) }}"
+					class="btn btn-danger pull-right"
+					data-delete="" 
+				    data-title="Deleting video" 
+				    data-message="Do you really want to delete this video?"
+				    data-button-text="Yes, delete it!"><i class="fa fa-trash"></i> Delete video</a>
 	@endif 
 	</div>
 </div>

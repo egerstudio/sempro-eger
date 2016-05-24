@@ -7,7 +7,6 @@ use App\Video;
 use App\Category;
 use App\Http\Requests\VideoRequest;
 
-
 class BackendVideosController extends Controller
 {
     /**
@@ -27,8 +26,8 @@ class BackendVideosController extends Controller
      */
     public function index()
     {
-        $videos = Video::orderBy('youtube_date','desc')->paginate(9);
-    	return view('videos.index',compact('videos'));
+        $videos = Video::orderBy('youtube_date', 'desc')->paginate(9);
+        return view('videos.index', compact('videos'));
     }
 
     /**
@@ -38,22 +37,21 @@ class BackendVideosController extends Controller
      */
     public function create()
     {
-
-        $categories = Category::lists('title','id');
-        return view('backend.videos.create',compact('categories'));
+        $categories = Category::lists('title', 'id');
+        return view('backend.videos.create', compact('categories'));
     }
 
     /**
      * Edit an existing video
      *
-
+     * @param App\Video $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $video = Video::findOrFail($id);
-        $categories = Category::lists('title','id');
-        return view('backend.videos.edit',['video' => $video, 'categories' => $categories]);
+        $categories = Category::lists('title', 'id');
+        return view('backend.videos.edit', ['video' => $video, 'categories' => $categories]);
     }
 
     /**
@@ -64,8 +62,10 @@ class BackendVideosController extends Controller
      */
     public function store(VideoRequest $request)
     {
-        Video::create($request->all());
-        dd($request->all());
+        $video = Video::create($request->all());
+        if ($video->featured == 1) {
+            $video->unFeatureOthers();
+        }
         flash()->success('Hurrah!', 'Your video is saved', 'success');
         return redirect('backend/videos');
     }
@@ -81,9 +81,14 @@ class BackendVideosController extends Controller
         $video = Video::findOrFail($id);
         $video->update($request->all());
 
-        if($video->featured == 1) {
+
+        if ($video->featured == 1) {
             // set this video as featured on front page
             $video->unFeatureOthers();
+        }
+
+        if (empty($request->featured) && $video->featured == 1) {
+            $video->unfeatureSelf();
         }
         
         flash()->success('Yay!', 'Your video is updated');
@@ -91,4 +96,17 @@ class BackendVideosController extends Controller
     }
 
 
+    /**
+     * Delete a video
+     *
+     * @param App\Video $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $video = Video::findOrFail($id);
+        $video->delete();
+        flash()->success('Gone!', 'Your video is deleted', 'success');
+        return redirect('backend/videos');
+    }
 }

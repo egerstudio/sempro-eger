@@ -8,7 +8,6 @@ use App\Video;
 use App\Http\Requests\CategoryRequest;
 use Request;
 
-
 class BackendCategoriesController extends Controller
 {
     /**
@@ -28,7 +27,7 @@ class BackendCategoriesController extends Controller
      */
     public function index()
     {
-    	return view('backend.categories.create');
+        return view('backend.categories.create');
     }
 
     /**
@@ -50,7 +49,7 @@ class BackendCategoriesController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
-        return view('backend.categories.edit',compact('category'));
+        return view('backend.categories.edit', compact('category'));
     }
 
     /**
@@ -89,30 +88,32 @@ class BackendCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::where('id',$id)->with('videos')->first();
+        $category = Category::where('id', $id)->with('videos')->first();
         //dd($category);
-        if(count($category->videos)) {
+        if (count($category->videos)) {
             //flash()->persistent('Hold your horses', 'There are videos belonging to this category, you need to move these videos before we can delete the category. Let us do that now.','error');
-            $categoriesList = $category::where('id','<>',$id)->lists('title','id');
-            return view('backend.categories.move',(['category' => $category, 'categoriesList' => $categoriesList]));
+            $categoriesList = $category::where('id', '<>', $id)->lists('title', 'id');
+            return view('backend.categories.move', (['category' => $category, 'categoriesList' => $categoriesList]));
         } else {
             $category->delete();
-            flash()->success('Gone!','The category is deleted!');
+            flash()->success('Gone!', 'The category is deleted!');
             return redirect('backend/categories');
         }
-        
-
     }
 
-    public function moveAll(Request $request) 
+    /**
+     * Move all videos into another category before deleting current category
+     * @param  Request $request     need to be an array of 'category_id' (to be deleted) 
+     *                              and 'newcategory_id' (destination)
+     * @return \Illuminate\Http\Response
+     */
+    public function moveAll(Request $request)
     {
         $input = $request::all();
         Video::where('category_id', '=', $input['category_id'])->update(['category_id' => $input['newcategory_id']]);
         $category = Category::find($input['category_id']);
         $category->delete();
-        flash()->success('Wowza!','All videos are moved, and category is deleted!');
+        flash()->success('Wowza!', 'All videos are moved, and category is deleted!');
         return redirect('backend/categories');
     }
-
-
 }

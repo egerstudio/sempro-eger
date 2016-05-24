@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'CET',
 
     /*
     |--------------------------------------------------------------------------
@@ -158,7 +158,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
-
         Alaouy\Youtube\YoutubeServiceProvider::class,
 
     ],

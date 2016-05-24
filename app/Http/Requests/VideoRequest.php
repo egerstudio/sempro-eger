@@ -27,7 +27,6 @@ class VideoRequest extends Request
             'youtube_id' => 'required',
             'title' => 'required|min:3',
             'slug' => 'required|alpha_dash',
-            'description' => 'required',
             'category_id' => 'required',
             'youtube_date' => 'date|required'
         ];

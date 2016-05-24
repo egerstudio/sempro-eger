@@ -7,18 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
 
-	protected $fillable = [
-		'title',
-		'slug'
-	];
+    protected $fillable = [
+        'title',
+        'slug'
+    ];
 
-    public function videos() 
+    /**
+     * Relation
+     * @return App\Video
+     */
+    public function videos()
     {
-    	return $this->hasMany('App\Video');
+        return $this->hasMany('App\Video');
     }
 
+    /**
+     * Order by Category titles
+     * @param  $query
+     * @return $query
+     */
     public function scopeTitle($query)
-	{
-		return $query->orderBy('title','asc');
-	}
+    {
+        return $query->orderBy('title', 'asc');
+    }
 }

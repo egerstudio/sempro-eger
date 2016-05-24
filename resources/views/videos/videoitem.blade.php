@@ -8,15 +8,21 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="well">
-			<a href="/backend/videos/{{$video->id}}/edit" class="btn btn-primary">Edit this video</a>
-			<a href="/backend/videos/{{$video->id}}/delete" class="btn btn-danger pull-right">Delete this video</a>
+			<a href="{{ action('BackendVideosController@edit',['video' => $video->id]) }}" class="btn btn-primary">Edit this video</a>
+			
+			<a href="{{ action('BackendVideosController@destroy',['video' => $video->id]) }}"
+					class="btn btn-danger pull-right"
+					data-delete="" 
+				    data-title="Deleting video" 
+				    data-message="Do you really want to delete this video?"
+				    data-button-text="Yes, delete it!">Delete video</a>
 		</div>
 	</div>
 </div>
 @endif
 <div class="row">
 	<div class="col-md-12">
-		<h3><small>CATEGORY: </small><span class="label label-default"><a href="{{ action('VideosController@categoryIndex',['category' => $video->category->slug]) }}">{{ $video->category->title }}</a></span></h3>
+		<h3><small>CATEGORY: </small><a href="{{ action('VideosController@category',['category' => $video->category->slug]) }}"><span class="label label-default">{{ $video->category->title }}</span></a></h3>
 		<h2>{{ $video->youtubeDetails()->snippet->localized->title }}</h2>
 		<!-- tags -->
 		<p>
@@ -56,5 +62,10 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('scripts')
+<!-- sweet alert confirm dialog -->
+	@include('partials.js.delete')
 @endsection
 

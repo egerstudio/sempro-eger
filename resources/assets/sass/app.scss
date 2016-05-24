@@ -71,6 +71,7 @@ p.description {
     width: 100%;
     height: 200px;
     border: 1px solid #ccc;
+    margin-bottom: 15px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -113,16 +114,15 @@ p.description {
 }
 
 .edit-video {
-    margin: -390px 0 0 5px;
-
-    a.edit-btn {
-        background: rgba(255,255,255,0.3);
-        border: 0;
-    }
+    margin: 0 0 0 5px;
 }
 
 .edit-video.-featured {
-    margin: -140px 0 0 5px;
+    margin: 0 0 0 5px;
+}
+
+.well-edit {
+    margin-top: -16px;
 }
 
 @media (min-width:48em) {

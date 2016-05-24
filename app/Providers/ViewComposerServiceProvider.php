@@ -13,6 +13,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->composeVideoIndex();
         $this->composeToolbar();
         $this->composeBackendCategory();
     }
@@ -28,11 +29,21 @@ class ViewComposerServiceProvider extends ServiceProvider
     }
 
     /**
+     * Compose the video index
+     *
+     * @return void
+     */
+    private function composeVideoIndex()
+    {
+        view()->composer('videos.index', 'App\Http\Composers\VideoIndexComposer');
+    }
+
+    /**
      * Compose the toolbar and admin navigation.
      *
      * @return void
      */
-    private function composeToolbar() 
+    private function composeToolbar()
     {
         view()->composer('partials.toolbar', 'App\Http\Composers\ToolbarComposer');
     }
@@ -42,7 +53,7 @@ class ViewComposerServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    private function composeBackendCategory() 
+    private function composeBackendCategory()
     {
         view()->composer('backend.partials.categorySidebar', 'App\Http\Composers\BackendCategorySidebarComposer');
     }

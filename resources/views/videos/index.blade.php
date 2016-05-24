@@ -1,7 +1,8 @@
 @extends('layouts.default')
+
 @section('content')
 	<div class="row">
-	@if ($featuredVideo && $videos->currentPage() == 1)
+	@if (isset($featuredVideo) && $videos->currentPage() == 1)
 	<div class="col-md-8 col-md-offset-2">
 		<a class="video-listing-item -featured" href="/video/{{$featuredVideo->slug}}" style="background-image: url('{{ $featuredVideo->youtubeDetails()->snippet->thumbnails->maxres->url }}');">
 				<span class="caption">{{ $featuredVideo->title }}</span>
@@ -26,5 +27,9 @@
 			Showing {{ $videos->count() }} out of a total of {{ $videos->total() }} videos
 		</p>
 	</div>	
+@endsection
 
+@section('scripts')
+<!-- sweet alert confirm dialog -->
+	@include('partials.js.delete')
 @endsection
