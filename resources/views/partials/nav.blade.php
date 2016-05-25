@@ -40,7 +40,7 @@ $selectedBg = "$bg[$i]";
                     <li><a href="{{ action('VideosController@index') }}">Show all videos</a></li>
                     
                     <!-- archive -->
-                    @if(isset($years))
+                    @if(!empty($years))
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Video archive <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -56,7 +56,7 @@ $selectedBg = "$bg[$i]";
                     @endif
 
                     <!-- categories -->
-                    @if(isset($categories))
+                    @if(!empty($categories))
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
                         <ul class="dropdown-menu">

@@ -22,7 +22,9 @@ elixir(function(mix) {
     	], './public/js/libs.js')
     	.styles([
     		'libs/sweetalert.css',
-            'libs/font-awesome.min.css',
+            'libs/font-awesome/css/font-awesome.min.css',
     	], './public/css/libs.css')
     	.version(['css/app.css']);
+
+        mix.copy('resources/assets/css/libs/font-awesome/fonts','public/fonts');
 });

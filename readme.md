@@ -15,10 +15,14 @@ Sett variabler for følgende:
 3. DB_USERNAME
 4. DB_PASSWORD
 
-# Application key
-- php artisan key:generate
+Apache2 document root should be set to public folder
+
+sudo chgrp -R www-data storage bootstrap/cache
+sudo chmod -R ug+rwx storage bootstrap/cache
 
 1. composer install
+# Application key
+- php artisan key:generate
 2. artisan migrate
 3. artisan db:seed --class=VideoTableSeeder
 4. artisan db:seed --class=CategoryTableSeeder

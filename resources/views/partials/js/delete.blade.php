@@ -32,7 +32,7 @@ var deleter = {
                 text              : this.modalMessage,
                 type              : "warning",
                 showCancelButton  : true,
-                confirmButtonColor: "#DD6B55",
+                confirmButtonColor: "#d9534f",
                 confirmButtonText : this.modalConfirmButtonText,
                 closeOnConfirm    : true
             },

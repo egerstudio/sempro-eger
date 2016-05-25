@@ -14,7 +14,6 @@ class NavComposer {
      */
 	public function compose($view)
 	{
-		$path = public_path();
 		$view->with('years', \App\Video::first())
 			 ->with('categories', \App\Category::title()->orderBy('title')->with('videos')->get())
 			 ->with('imgPath', Config::get('app.url'));

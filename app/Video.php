@@ -164,4 +164,25 @@ class Video extends Model
 
         return $count ? "{$slug}-{$count}" : $slug;
     }
+
+    /**
+     * Add the best quality thumbnail from YouTube as a path string in db
+     *
+     * @return void
+     */
+    public function addYouTubeImage()
+    {
+        $thumbnails = $this->youtubeDetails()->snippet->thumbnails;
+        
+        if(!empty($thumbnails)){
+            //prefer maxres to high
+            if(!empty($thumbnails->maxres)){
+                $this->youtube_image = $thumbnails->maxres->url;
+            } else {
+                //defer to high
+                $this->youtube_image = $thumbnails->high->url;
+            }
+            $this->save();
+        }
+    }
 }

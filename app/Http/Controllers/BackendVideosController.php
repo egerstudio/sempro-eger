@@ -62,6 +62,7 @@ class BackendVideosController extends Controller
     public function store(VideoRequest $request)
     {
         $video = Video::create($request->all());
+        $video->addYouTubeImage();
         if ($video->featured == 1) {
             $video->unFeatureOthers();
         }
@@ -79,7 +80,7 @@ class BackendVideosController extends Controller
     {
         $video = Video::findOrFail($id);
         $video->update($request->all());
-
+        $video->addYouTubeImage();
 
         if ($video->featured == 1) {
             // set this video as featured on front page

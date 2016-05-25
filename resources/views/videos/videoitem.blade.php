@@ -2,7 +2,7 @@
 @section('content')
 <!-- 16:9 aspect ratio -->
 <div class="embed-responsive embed-responsive-16by9">
-  {!! $video->youtubeDetails()->player->embedHtml !!}
+  @include('partials.youtubeplayer')
 </div>
 @if (Auth::user())
 <div class="row">
@@ -61,7 +61,7 @@
 			<div class="row">
 				@foreach ($relatedVideos as $relatedVideo)
 					<div class="col-md-4">
-						<a class="video-listing-item" href="/video/{{$relatedVideo->slug}}" style="background-image: url('{{ $relatedVideo->youtubeDetails()->snippet->thumbnails->maxres->url }}');">
+						<a class="video-listing-item" href="/video/{{$relatedVideo->slug}}" style="background-image: url('{{ $relatedVideo->youtube_image }}');">
 							<span class="caption">{{ $relatedVideo->title }}</span>
 						</a>
 					</div>

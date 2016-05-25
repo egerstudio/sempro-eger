@@ -11,7 +11,7 @@
 		<div class="embed-responsive embed-responsive-16by9" id="youtube_preview">
 			{{-- should we preview?? --}}
 			@if (!empty($readonly) && !empty($video))
-			  {!! $video->youtubeDetails()->player->embedHtml !!}
+			  @include('partials/youtubeplayer')
 			@endif
 		</div>
 	</div>

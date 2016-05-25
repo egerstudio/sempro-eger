@@ -1,0 +1,1 @@
+<iframe width="640" height="390" src="https://www.youtube.com/embed/{{$video->youtube_id}}?controls=2&modestbranding=1&showinfo=0" allowfullscreen frameborder="0"/></iframe>
