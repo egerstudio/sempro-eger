@@ -15,8 +15,8 @@ $navbar-font-family: $font-family-sans-serif;
 $navbar-font-size: 15px;
 $navbar-font-weight: 300;
 
-$navbar-padding-vertical: 0 0;
-$navbar-padding-horizontal: 0 0;
+$navbar-padding-vertical: 10px;
+$navbar-padding-horizontal: 10px;
 $navbar-margin-bottom: 0;
 
 $pagination-color: #333;
@@ -50,10 +50,43 @@ section#content {
 .nav-bg-06 { background: url(../../images/navbg06.jpg) no-repeat top left ; }
 .nav-bg-07 { background: url(../../images/navbg07.jpg) no-repeat top left ; }
 
-
-
-img.brand {
+ul.nav li a {
+    border-top: 5px solid #ccc;
+    background: rgba(255,255,255,0.6);
+    padding-top: 10px;
 }
+
+ul.nav li a:hover {
+    border-top: 5px solid black;
+    background: rgba(255,255,255,0.9);
+}
+
+ul.nav li:hover {
+    background: rgba(255,255,255,0.9);
+}
+
+ul.nav li.dropdown ul {
+
+    margin: 0;
+    padding: 0;
+    
+    li {
+        margin: 0;
+        padding: 0;
+
+        a, a:hover {
+            border-top: 0;
+            padding: 10px;
+        }
+        a:hover {
+            background: #d3d3d3;
+        }
+    }
+}
+
+img.brand{
+        height: 0px;
+    }
 
 html {
 	background: url(../../images/background.jpg) no-repeat bottom right fixed; 
@@ -171,6 +204,42 @@ h1.pageTitle {
 }
 
 
+@media only screen and (max-width: 768px) {
+    .nav-bg-01 { background-size: 0 0; }
+    .nav-bg-02 { background-size: 0 0; }
+    .nav-bg-03 { background-size: 0 0; }
+    .nav-bg-04 { background-size: 0 0; }
+    .nav-bg-05 { background-size: 0 0; }
+    .nav-bg-06 { background-size: 0 0; }
+    .nav-bg-07 { background-size: 0 0; }
+
+    .navbar {
+        border: 0px !important;
+    }
+    img.brand{
+        height: 222px;
+    }
+
+    .navbar-collapse {
+        background: rgba(0,0,0,0.1);
+    }
+
+    .boxme {
+        
+    }
+
+    
+}
+
+@media only screen and (max-width: 515px) {
+    .navbar {
+        border: 0px !important;
+    }
+    img.brand {
+        height: 150px;
+        margin-top: 72px;
+    }
+}
 
 
 

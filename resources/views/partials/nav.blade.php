@@ -26,13 +26,13 @@ $selectedBg = "$bg[$i]";
                 
 
                 <!-- Branding -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{{ asset('images/brand.png') }}}" class="brand" alt="Actors on Actors">
+                <a href="{{ url('/') }}">
+                    <img src="{{{ asset('images/logo-min.jpg') }}}" class="img-responsive brand" alt="Actors on Actors">
                 </a>
             </div>
             <!-- navbar-header end -->
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <div class="collapse navbar-collapse boxme" id="app-navbar-collapse">
             
                 <ul class="nav navbar-nav">
     

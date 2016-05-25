@@ -22,11 +22,13 @@
 	<div class="row">
 	@if (isset($featuredVideo) && $videos->currentPage() == 1)
 	<div class="col-md-12 featured-wrapper">
-		<div class="col-md-10 col-md-offset-1">
-			<a class="video-listing-item -featured" href="/video/{{$featuredVideo->slug}}" style="background-image: url('{{$featuredVideo->youtube_image}}');">
-				<span class="caption">{{ $featuredVideo->title }}</span>
-			</a>
-			@include('backend.partials._adminOptionsOnFeaturedVideo')
+		<div class="row">
+			<div class="col-sm-12 col-md-10 col-md-offset-1">
+				<a class="video-listing-item -featured" href="/video/{{$featuredVideo->slug}}" style="background-image: url('{{$featuredVideo->youtube_image}}');">
+					<span class="caption">{{ $featuredVideo->title }}</span>
+				</a>
+				@include('backend.partials._adminOptionsOnFeaturedVideo')
+			</div>
 		</div>
 	</div>
 	@endif

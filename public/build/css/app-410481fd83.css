@@ -34,6 +34,33 @@ section#content {
 .nav-bg-07 {
   background: url(../../images/navbg07.jpg) no-repeat top left; }
 
+ul.nav li a {
+  border-top: 5px solid #ccc;
+  background: rgba(255, 255, 255, 0.6);
+  padding-top: 10px; }
+
+ul.nav li a:hover {
+  border-top: 5px solid black;
+  background: rgba(255, 255, 255, 0.9); }
+
+ul.nav li:hover {
+  background: rgba(255, 255, 255, 0.9); }
+
+ul.nav li.dropdown ul {
+  margin: 0;
+  padding: 0; }
+  ul.nav li.dropdown ul li {
+    margin: 0;
+    padding: 0; }
+    ul.nav li.dropdown ul li a, ul.nav li.dropdown ul li a:hover {
+      border-top: 0;
+      padding: 10px; }
+    ul.nav li.dropdown ul li a:hover {
+      background: #d3d3d3; }
+
+img.brand {
+  height: 0px; }
+
 html {
   background: url(../../images/background.jpg) no-repeat bottom right fixed;
   background-size: cover; }
@@ -110,6 +137,35 @@ h1.pageTitle {
 .video-listing-item:hover .icon-play-video {
   transform: scale(1.1);
   opacity: 1; }
+
+@media only screen and (max-width: 768px) {
+  .nav-bg-01 {
+    background-size: 0 0; }
+  .nav-bg-02 {
+    background-size: 0 0; }
+  .nav-bg-03 {
+    background-size: 0 0; }
+  .nav-bg-04 {
+    background-size: 0 0; }
+  .nav-bg-05 {
+    background-size: 0 0; }
+  .nav-bg-06 {
+    background-size: 0 0; }
+  .nav-bg-07 {
+    background-size: 0 0; }
+  .navbar {
+    border: 0px !important; }
+  img.brand {
+    height: 222px; }
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.1); } }
+
+@media only screen and (max-width: 515px) {
+  .navbar {
+    border: 0px !important; }
+  img.brand {
+    height: 150px;
+    margin-top: 72px; } }
 
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -3765,8 +3821,8 @@ tbody.collapse.in {
 
 .navbar-collapse {
   overflow-x: visible;
-  padding-right: 0 0;
-  padding-left: 0 0;
+  padding-right: 10px;
+  padding-left: 10px;
   border-top: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch; }
@@ -3807,8 +3863,8 @@ tbody.collapse.in {
 .container > .navbar-collapse,
 .container-fluid > .navbar-header,
 .container-fluid > .navbar-collapse {
-  margin-right: -0 0;
-  margin-left: -0 0; }
+  margin-right: -10px;
+  margin-left: -10px; }
   @media (min-width: 768px) {
     .container > .navbar-header,
     .container > .navbar-collapse,
@@ -3846,7 +3902,7 @@ tbody.collapse.in {
 
 .navbar-brand {
   float: left;
-  padding: 0 0 0 0;
+  padding: 10px 10px;
   font-size: 18px;
   line-height: 20px;
   height: 220px; }
@@ -3857,12 +3913,12 @@ tbody.collapse.in {
   @media (min-width: 768px) {
     .navbar > .container .navbar-brand,
     .navbar > .container-fluid .navbar-brand {
-      margin-left: -0 0; } }
+      margin-left: -10px; } }
 
 .navbar-toggle {
   position: relative;
   float: right;
-  margin-right: 0 0;
+  margin-right: 10px;
   padding: 9px 10px;
   margin-top: 93px;
   margin-bottom: 93px;
@@ -3884,7 +3940,7 @@ tbody.collapse.in {
       display: none; } }
 
 .navbar-nav {
-  margin: 0 0/2 -0 0; }
+  margin: 5px -10px; }
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -3912,13 +3968,13 @@ tbody.collapse.in {
       .navbar-nav > li {
         float: left; }
         .navbar-nav > li > a {
-          padding-top: 0 0;
-          padding-bottom: 0 0; } }
+          padding-top: 10px;
+          padding-bottom: 10px; } }
 
 .navbar-form {
-  margin-left: -0 0;
-  margin-right: -0 0;
-  padding: 10px 0 0;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding: 10px 10px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -4005,15 +4061,15 @@ tbody.collapse.in {
   @media (min-width: 768px) {
     .navbar-text {
       float: left;
-      margin-left: 0 0;
-      margin-right: 0 0; } }
+      margin-left: 10px;
+      margin-right: 10px; } }
 
 @media (min-width: 768px) {
   .navbar-left {
     float: left !important; }
   .navbar-right {
     float: right !important;
-    margin-right: -0 0; }
+    margin-right: -10px; }
     .navbar-right ~ .navbar-right {
       margin-right: 0; } }
 
