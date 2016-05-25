@@ -69,4 +69,24 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * Show user profile edit view.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    protected function edit()
+    {
+        return view('backend.profile.edit');
+    }
+
+    /**
+     * Update the user profile.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    protected function update()
+    {
+        //return view('backend.profile.index');
+    }
 }

@@ -36,6 +36,7 @@ section#content {
 
 ul.nav li a {
   border-top: 5px solid #ccc;
+  border-bottom: 1px solid #ccc;
   background: rgba(255, 255, 255, 0.6);
   padding: 10px 20px 10px 20px;
   color: black; }
@@ -56,7 +57,8 @@ ul.nav li.dropdown ul {
     ul.nav li.dropdown ul li a, ul.nav li.dropdown ul li a:hover {
       border-top: 0;
       padding: 10px;
-      border-left: 5px solid white; }
+      border-left: 5px solid white;
+      border-bottom: 0px; }
     ul.nav li.dropdown ul li a:hover {
       background: #eee;
       border-left: 5px solid black; }
@@ -133,6 +135,30 @@ h1.pageTitle {
 .well-edit {
   margin-top: -16px; }
 
+.buffer-10-bottom {
+  margin-bottom: 10px; }
+
+.buffer-20-bottom {
+  margin-bottom: 20px; }
+
+.buffer-30-bottom {
+  margin-bottom: 30px; }
+
+.buffer-40-bottom {
+  margin-bottom: 40px; }
+
+.buffer-10-top {
+  margin-top: 10px; }
+
+.buffer-20-top {
+  margin-top: 20px; }
+
+.buffer-30-top {
+  margin-top: 30px; }
+
+.buffer-40-top {
+  margin-top: 40px; }
+
 @media only screen and (max-width: 60em) {
   .video-listing-item {
     height: 300px; } }
@@ -161,7 +187,27 @@ h1.pageTitle {
   img.brand {
     height: 222px; }
   .navbar-collapse {
-    background: rgba(0, 0, 0, 0.1); } }
+    background: rgba(0, 0, 0, 0.1); }
+  ul.nav li a {
+    border-top: 0;
+    border-bottom: 0;
+    background: white;
+    padding: 10px;
+    color: black; }
+  ul.nav li a:hover {
+    background: #eee;
+    border-top: 0px; }
+  ul.nav li:hover {
+    background: #eee;
+    border-top: 0px; }
+  ul.nav li.dropdown ul {
+    margin: 0;
+    padding: 0; }
+    ul.nav li.dropdown ul li a, ul.nav li.dropdown ul li a:hover {
+      border-top: 0;
+      border-left: 0;
+      line-height: 20px;
+      padding: 5px 15px 5px 30px; } }
 
 @media only screen and (max-width: 515px) {
   .navbar {
@@ -169,6 +215,11 @@ h1.pageTitle {
   img.brand {
     height: 150px;
     margin-top: 72px; } }
+
+@media only screen and (min-width: 768px) {
+  /* makes dropdown appear on hover */
+  .dropdown:hover .dropdown-menu {
+    display: block; } }
 
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)

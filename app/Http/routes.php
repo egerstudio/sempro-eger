@@ -24,16 +24,18 @@ Route::post('backend/categories/move/all', 'BackendCategoriesController@moveAll'
 
 Route::resource('backend/videos', 'BackendVideosController');
 
-Route::get('backend/profile', 'BackendController@editProfile');
-Route::post('backend/profile', 'BackendController@updateProfile');
+/**
+ * User
+ */
+Route::get('backend/profile/{user}', 'UsersController@show');
+Route::get('backend/profile/{user}/edit', 'UsersController@edit');
+Route::patch('backend/profile/{user}', 'UsersController@update');
 
 /**
  * Front end routes for videos, archives, categories 
  */
 Route::get('/video/{video}', 'VideosController@show');
-
 Route::get('/archive/{year}', 'VideosController@archive');
-
 Route::get('/{category}', 'VideosController@category');
 
 /**

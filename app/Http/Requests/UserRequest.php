@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Auth;
 
-class CategoryRequest extends Request
+class UserRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +24,15 @@ class CategoryRequest extends Request
      */
     public function rules()
     {
-        // Get parameters so that we can ignore the slug when updating
-        $id = $this->route('categories');
-
+        $password = Auth::user()->password;
+        
         return [
-            'title' => 'required|min:3',
-            'slug' => 'required|min:3|unique:categories,slug,'.$id,
+            'name' => 'required',
+            'email' => 'required|email',
+            'newpassword' => 'same:newpasswordrepeat|required_with:password|different:password',
+            'newpasswordrepeat' => 'required_with:newpassword',
+            'password' => 'required_with:newpassword|hash:'.$password,
+
         ];
     }
 }

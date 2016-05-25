@@ -79,6 +79,7 @@ return [
     'timezone'             => 'The :attribute must be a valid zone.',
     'unique'               => 'The :attribute has already been taken.',
     'url'                  => 'The :attribute format is invalid.',
+    'hash'                 => 'The :attribute is not a match for your current password.',
 
     /*
     |--------------------------------------------------------------------------
@@ -111,7 +112,9 @@ return [
     'attributes' => [
         'category_id' => 'category',
         'youtube_id' => 'YouTube ID',
-        'youtube_date' => 'published date'
+        'youtube_date' => 'published date',
+        'newpassword' => 'new password',
+        'newpasswordrepeat' => 'repeat password'
     ],
 
 ];

@@ -8,7 +8,7 @@
 		</div>
 	</div>
 
-	@if(empty($videos))
+	@if(empty($videos->first()))
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 text-center">
 			<div class="well well-lg">

@@ -80,12 +80,12 @@ $selectedBg = "$bg[$i]";
                     @if (Auth::user())
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ADMINISTRATOR <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i> Backend <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ action('BackendVideosController@create') }}">Add a video</a></li>
+                            <li><a href="{{ action('BackendVideosController@create') }}"><i class="fa fa-film"></i> Add a video</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{{ action('BackendCategoriesController@index') }}">Show categories</a></li>
-                            <li><a href="{{ action('BackendCategoriesController@create') }}">Add category</a></li>
+                            <li><a href="{{ action('BackendCategoriesController@index') }}"><i class="fa fa-list"></i> Show categories</a></li>
+                            <li><a href="{{ action('BackendCategoriesController@create') }}"><i class="fa fa-plus"></i> Add category</a></li>
                         </ul>
                     </li>
 
@@ -95,7 +95,7 @@ $selectedBg = "$bg[$i]";
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/backend/profile') }}"><i class="fa fa-btn fa-cog"></i> Profile</a></li>
+                            <li><a href="{{ url('/backend/profile/'.Auth::user()->id) }}"><i class="fa fa-btn fa-cog"></i> Profile</a></li>
                             <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Logout</a></li>
                         </ul>
                     </li>

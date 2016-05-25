@@ -4,7 +4,8 @@
 	<div class="col-sm-4">
 		{!! Form::text('youtube_id', null, ['class' => 'form-control input-lg','aria-describedby' => 'youtubeidInfo', $readonly, 'id' => 'youtubeId']) !!}
 		<span id="youtubeidInfo" class="help-block">
-			Type in the Youtube ID of the video you want to add, and the fields below are automatically populated, you can then edit the fields to your liking.
+			Type in the Youtube ID of the video you want to add, and the fields below are automatically populated. You can then edit the fields to your liking. <br><br>
+			A YouTube ID is the part of a YouTube URL that is marked in bold: http://www.youtube.com/watch?v=<strong>abcde12345</strong>.
 		</span>
 	</div>
 	<div class="col-sm-4">

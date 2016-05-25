@@ -7,6 +7,7 @@ use App\Category;
 use App\Video;
 use App\Http\Requests\CategoryRequest;
 use Request;
+use Route;
 
 class BackendCategoriesController extends Controller
 {
@@ -18,6 +19,16 @@ class BackendCategoriesController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     * Show one category
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        return redirect()->action('BackendCategoriesController@edit', ['categories' => Route::current()->parameter('categories')]);
     }
 
     /**

@@ -52,6 +52,7 @@ section#content {
 
 ul.nav li a {
     border-top: 5px solid #ccc;
+    border-bottom: 1px solid #ccc;
     background: rgba(255,255,255,0.6);
     padding: 10px 20px 10px 20px;
     color: black;
@@ -79,6 +80,7 @@ ul.nav li.dropdown ul {
             border-top: 0;
             padding: 10px;
             border-left: 5px solid white;
+            border-bottom: 0px;
         }
         a:hover {
             background: #eee;
@@ -188,6 +190,17 @@ h1.pageTitle {
     margin-top: -16px;
 }
 
+// buffer classes
+.buffer-10-bottom { margin-bottom: 10px; }
+.buffer-20-bottom { margin-bottom: 20px; }
+.buffer-30-bottom { margin-bottom: 30px; }
+.buffer-40-bottom { margin-bottom: 40px; }
+
+.buffer-10-top { margin-top: 10px; }
+.buffer-20-top { margin-top: 20px; }
+.buffer-30-top { margin-top: 30px; }
+.buffer-40-top { margin-top: 40px; }
+
 @media (max-width: 480px) {
     
     
@@ -231,6 +244,41 @@ h1.pageTitle {
         
     }
 
+    ul.nav li a {
+        border-top: 0;
+        border-bottom: 0;
+        background: white;
+        padding: 10px;
+        color: black;
+    }
+
+    ul.nav li a:hover {
+        background: #eee;
+        border-top: 0px;
+    }
+
+    ul.nav li:hover {
+        background: #eee;
+        border-top: 0px;
+    }
+
+    ul.nav li.dropdown ul {
+
+        margin: 0;
+        padding: 0;
+        
+        li {
+            
+
+            a, a:hover {
+                border-top: 0;
+                border-left: 0;
+                line-height: 20px;
+                padding: 5px 15px 5px 30px;
+            }
+        }
+    }
+
     
 }
 
@@ -244,6 +292,12 @@ h1.pageTitle {
     }
 }
 
+@media only screen and (min-width : 768px) {
+    /* makes dropdown appear on hover */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
 
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";

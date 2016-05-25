@@ -56,19 +56,18 @@
 
 				
 
-				
+				<div class="row">
+				@if(empty($category->videos))
+					<p class="lead">No videos in this category. What brought you here?</p>
+				@endif
 				@foreach ($category->videos as $video)
-				<div class="row">	
-					<div class="col-xs-4 col-md-2">
-						<img src="{{ $video->youtube_image }}" class="thumbnail img-responsive">
+					<div class="col-xs-6 col-sm-4 text-center">
+						<img src="{{ $video->youtube_image }}" class="img-responsive">
+						<h5>{{ $video->title }}</h5>
+						<hr>
 					</div>
-					<div class="col-xs-8 col-md-10">
-						<h3>{{ $video->title }}</h4>
-						
-					</div>
-				</div>
 				@endforeach
-				
+				</div>
 
 			</div>
 		</div>
