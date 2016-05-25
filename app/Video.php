@@ -7,9 +7,21 @@ use Youtube;
 use Carbon\Carbon;
 use App\FeaturedVideo;
 use Str;
+use TNTSearch;
 
 class Video extends Model
 {
+
+    /**
+     * Register listeners to have search index updated
+     * 
+     */
+    public static function boot()
+    {
+        Video::created([__CLASS__, 'insertInSearchIndex']);
+        Video::updated([__CLASS__, 'updateSearchIndex']);
+        Video::deleted([__CLASS__, 'deleteFromSearchIndex']);
+    }
 
     protected $fillable = [
         'youtube_id',
@@ -173,16 +185,56 @@ class Video extends Model
     public function addYouTubeImage()
     {
         $thumbnails = $this->youtubeDetails()->snippet->thumbnails;
-        
+
         if(!empty($thumbnails)){
             //prefer maxres to high
             if(!empty($thumbnails->maxres)){
                 $this->youtube_image = $thumbnails->maxres->url;
+            } elseif(!empty($thumbnails->standard)){
+                //defer to standard
+                $this->youtube_image = $thumbnails->standard->url;
             } else {
-                //defer to high
+                // defer to high
                 $this->youtube_image = $thumbnails->high->url;
             }
             $this->save();
         }
+    }
+
+    /**
+     * Function for inserting into search index
+     * @param  \App\Video $video    the video to insert
+     * @return void
+     */
+    public static function insertInSearchIndex($video)
+    {
+       
+        TNTSearch::selectIndex("videos.index");
+        $index = TNTSearch::getIndex();
+        $index->insert(['id' => $video->id, 'titel' => $video->title, 'description' => $video->description, 'slug' => $video->slug, 'youtube_date' => $video->youtube_date]);
+    }
+
+    /**
+     * Delete from index
+     * @param  \App\Video $video    the video to delete
+     * @return void
+     */
+    public static function deleteFromSearchIndex($video)
+    {
+        TNTSearch::selectIndex("videos.index");
+        $index = TNTSearch::getIndex();
+        $index->delete($video->id);
+    }
+
+    /**
+     * Update the video index when details change
+     * @param  \App\Video $video    the video to update
+     * @return void
+     */
+    public static function updateSearchIndex($video)
+    {
+        TNTSearch::selectIndex("videos.index");
+        $index = TNTSearch::getIndex();
+        $index->update($video->id, ['id' => $video->id, 'titel' => $video->title, 'description' => $video->description, 'slug' => $video->slug, 'youtube_date' => $video->youtube_date]);
     }
 }

@@ -13,6 +13,13 @@
 
 Route::get('/', 'VideosController@index');
 
+/**
+ * Search
+ */
+
+Route::post('/search', 'VideosController@search');
+Route::get('/search', 'VideosController@search');
+
 Route::auth();
 
 /**
@@ -21,7 +28,6 @@ Route::auth();
 Route::resource('backend/categories', 'BackendCategoriesController');
 Route::get('backend/categories/move', 'BackendCategoriesController@move');
 Route::post('backend/categories/move/all', 'BackendCategoriesController@moveAll');
-
 Route::resource('backend/videos', 'BackendVideosController');
 
 /**
@@ -37,6 +43,7 @@ Route::patch('backend/profile/{user}', 'UsersController@update');
 Route::get('/video/{video}', 'VideosController@show');
 Route::get('/archive/{year}', 'VideosController@archive');
 Route::get('/{category}', 'VideosController@category');
+
 
 /**
  * API route for getting YouTube details

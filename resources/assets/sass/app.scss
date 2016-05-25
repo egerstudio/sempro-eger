@@ -13,7 +13,7 @@ $navbar-default-border: 1px;
 $navbar-height: 220px;
 $navbar-font-family: $font-family-sans-serif;
 $navbar-font-size: 15px;
-$navbar-font-weight: 300;
+$navbar-font-weight: 400;
 
 $navbar-padding-vertical: 10px;
 $navbar-padding-horizontal: 10px;
@@ -31,6 +31,9 @@ $btn-primary-bg: #666;
 
 $link-color: #666;
 
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
 section#content {
     border-top: 1px solid #ccc;
     padding-top: 10px;
@@ -40,6 +43,17 @@ section#content {
     font-family: $navbar-font-family;
     font-size: $navbar-font-size;
     font-weight: $navbar-font-weight;    
+}
+
+.navbar-form {
+    margin: 0;
+    border-top: 5px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+    input {
+        margin: 3px 0 3px 0;
+    }
+
 }
 
 .nav-bg-01 { background: url(../../images/navbg01.jpg) no-repeat top left ; }
@@ -300,5 +314,5 @@ h1.pageTitle {
 }
 
 
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
 

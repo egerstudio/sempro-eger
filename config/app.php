@@ -147,8 +147,9 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Alaouy\Youtube\YoutubeServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        TeamTNT\TNTSearch\TNTSearchServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -158,7 +159,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
-        Alaouy\Youtube\YoutubeServiceProvider::class,
+        
 
     ],
 
@@ -208,6 +209,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
+        'TNTSearch' => TeamTNT\TNTSearch\Facades\TNTSearch::class,
 
     ],
 

@@ -8,6 +8,7 @@ use App\Video;
 use App\Category;
 use DB;
 use Route;
+use TNTSearch;
 
 class VideosController extends Controller
 {
@@ -51,5 +52,20 @@ class VideosController extends Controller
         $video = Video::where('slug', $slug)->first();
         $relatedVideos = $video->relatedVideos()->get();
         return view('videos.videoitem', ['video' => $video, 'relatedVideos' => $relatedVideos]);
+    }
+
+    
+
+    /**
+     * Search for a video
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        TNTSearch::selectIndex('videos.index');
+        $result = TNTSearch::searchBoolean($request->input('query'), 1000);
+        $videos = Video::whereIn('id', $result['ids'])->paginate(9);
+        return view('videos.searchresult',['page_title' => 'Search results', 'page_subtitle' => $request->input('query'), 'videos' => $videos, 'query' => $request->input('query') ]);
     }
 }
