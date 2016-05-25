@@ -40,7 +40,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">404 - we could not find the page</div>
+                <p>Please go back or try again later</p>
             </div>
         </div>
     </body>
