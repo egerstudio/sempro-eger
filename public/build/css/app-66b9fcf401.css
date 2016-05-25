@@ -37,7 +37,8 @@ section#content {
 ul.nav li a {
   border-top: 5px solid #ccc;
   background: rgba(255, 255, 255, 0.6);
-  padding-top: 10px; }
+  padding: 10px 20px 10px 20px;
+  color: black; }
 
 ul.nav li a:hover {
   border-top: 5px solid black;
@@ -54,9 +55,11 @@ ul.nav li.dropdown ul {
     padding: 0; }
     ul.nav li.dropdown ul li a, ul.nav li.dropdown ul li a:hover {
       border-top: 0;
-      padding: 10px; }
+      padding: 10px;
+      border-left: 5px solid white; }
     ul.nav li.dropdown ul li a:hover {
-      background: #d3d3d3; }
+      background: #eee;
+      border-left: 5px solid black; }
 
 img.brand {
   height: 0px; }

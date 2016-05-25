@@ -37,12 +37,12 @@ $selectedBg = "$bg[$i]";
                 <ul class="nav navbar-nav">
     
                     <!-- all videos -->
-                    <li><a href="{{ action('VideosController@index') }}">Show all videos</a></li>
+                    <li><a href="{{ action('VideosController@index') }}">All videos</a></li>
                     
                     <!-- archive -->
                     @if(!empty($years))
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Video archive <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Archive <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             @foreach ($years->distinctYears() as $year)
                                 <li>
