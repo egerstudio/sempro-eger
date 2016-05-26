@@ -44,11 +44,17 @@ På Apache/Nginx skal `document root` i virtuell-host eller host konfigurasjon s
 1. Kjør `composer install`. Composer vil laste ned en drøss med ekstra pakker og generere autoload-filer, dette tar litt tid.
 2. Kjør `php artisan key:generate` som genererer en lokal nøkkel til sessions i systemet.
 3. Sett opp databasen ved å kjøre `php artisan migrate`. Tabeller blir klargjort.
-4. Fyll databasen ved å kjøre `php artisan db:seed`. 
+4. Fyll databasen ved å kjøre `php artisan db:seed`.
 
 Hvis du vil kjøre systemet uten voldsomme feilmeldinger (dersom de oppstår), endrer du `.env`filens `APP_ENV` til `production`og `APP_DEBUG` settes til `false`.
 
 Systemet skal nå være klart til å kjøres.
+
+> **Vær oppmerksom på**
+> Dersom du får hvit skjerm eller en 500-feilmelding første gang du kjører systemet, er det sannsynligvis feil rettigheter på `boostrap/cache`og `storage`mappene. Kjør følgende kommando på *nix systemer for å fikse dette, fra prosjektets rotmappe.
+> `sudo chgrp -R **www-data** storage bootstrap/cache` (www-data er gruppen lokal bruker hører til, tilpass etter din konfigurasjon)
+> `sudo chmod -R ug+rwx storage bootstrap/cache`
+> Systemet skal nå fungere.
 
 #### <i class="icon-search"></i> Om søkemotoren
 
