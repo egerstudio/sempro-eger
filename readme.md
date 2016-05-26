@@ -28,16 +28,16 @@ Systemet krever en database med UTF-8 enkoding.
 
 Døp om filen .env.example til .env og fyll inn følgende info:
 
- 1. APP_URL = lokalt domenenavn (eksempelvis 'localhost' eller 'sempro.dev')
- 2. DB_DATABASE = databasenavn
- 3. DB_USERNAME = brukernavn med tilgang til databasen
- 4. DB_PASSWORD = passord
- 5. MAILGUN_DOMAIN = gyldig domene på mailgun (bruk gjerne sandbox)
- 6. MAILGUN_SECRET = api-nøkkel fra mailgun
+ 1. `APP_URL` = lokalt domenenavn (eksempelvis `'localhost'` eller `'sempro.dev'`)
+ 2. `DB_DATABASE` = databasenavn
+ 3. `DB_USERNAME` = brukernavn med tilgang til databasen
+ 4. `DB_PASSWORD` = passord
+ 5. `MAILGUN_DOMAIN` = gyldig domene på mailgun (bruk gjerne sandbox)
+ 6. `MAILGUN_SECRET` = api-nøkkel fra mailgun
 
 #### <i class="icon-pencil"></i> Konfigurasjon av virtuell tjener / tjener
 
-På Apache/Nginx skal 'Document root' i virtuell-host eller host konfigurasjon settes til 'public' mappen. Sett også 'Allow override all' i Apache-konfig for at systemet skal fungere.
+På Apache/Nginx skal `document root` i virtuell-host eller host konfigurasjon settes til `public` mappen. Sett også `Allow override all` direktivet i Apache-konfig for at systemet skal fungere.
 
 #### <i class="icon-cog"></i> Få systemet opp og gå
 
@@ -46,7 +46,7 @@ På Apache/Nginx skal 'Document root' i virtuell-host eller host konfigurasjon s
 3. Sett opp databasen ved å kjøre `php artisan migrate`. Tabeller blir klargjort.
 4. Fyll databasen ved å kjøre `php artisan db:seed`. 
 
-Hvis du vil kjøre systemet uten voldsomme feilmeldinger (dersom de oppstår), endrer du `.env`filens `APP_ENV`til `production`og `APP_DEBUG` settes til `false`.
+Hvis du vil kjøre systemet uten voldsomme feilmeldinger (dersom de oppstår), endrer du `.env`filens `APP_ENV` til `production`og `APP_DEBUG` settes til `false`.
 
 Systemet skal nå være klart til å kjøres.
 
