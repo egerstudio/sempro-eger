@@ -1,45 +1,62 @@
-## Sempro oppgave til intervju
+Sempro intervju oppgave
+===================
 
-Tekst
+Dette prosjektet er laget som en klone av **[getv.no](http://www.getv.no)** basert på oppgaven gitt på intervju.
 
-## Installasjon
+Her er en gjennomgang av installasjon og til sist noen tanker rundt koden.
 
-#Database
-Opprett en database med lokal tilgang UTF-8
-
-#.env
-Døp om filen .env.example til '.env' og fyll ut
-Sett variabler for følgende:
-1. APP_URL
-2. DB_DATABASE 
-3. DB_USERNAME
-4. DB_PASSWORD
-5. MAILGUN_DOMAIN bla bla
-6. MAILGUN_SECRET api key
+----------
 
 
-Apache2 document root should be set to public folder
+Installasjon
+-------------
 
-sudo chgrp -R www-data storage bootstrap/cache
-sudo chmod -R ug+rwx storage bootstrap/cache
+Systemet kjører på Laravel 5.2 ([se her for installasjon og systemkrav](https://laravel.com/docs/5.2) ) med følgende tillegg.
 
-for search to work, sqlite for apache/php
-includes file that is indexed for seed
+> **Tillegg:**
+> - **SQLite** for søkemotorfunksjonalitet (krever php5-sqlite/php7.0-sqlite3)
+> - **Composer** brukes for installasjon av ekstra pakker til systemet. Påse at Composer er installert enten globalt eller lokalt i mappen. Se [getcomposer.org](http://www.getcomposer.org) for installasjon og oppsett. Dersom du kjører Composer lokalt skal du skrive `php composer.phar` istedet for `composer` slik denne veiledningen viser.
 
-1. composer install
-# Application key
-- php artisan key:generate
-2. artisan migrate
-3. artisan db:seed --class=VideoTableSeeder
-4. artisan db:seed --class=CategoryTableSeeder
 
-Sett .env 
-APP_ENV=production
-APP_DEBUG=true to avoid nasty errors
+#### <i class="icon-hdd"></i> Hente koden
 
-## Tanker om koden
+Koden hentes fra GitHub-repository [egerstudio/sempro-eger](https://github.com/egerstudio/sempro-eger).
 
-Tekst
+#### <i class="icon-file"></i> Forberedelse til installasjon
 
-## License
-[MIT license](http://opensource.org/licenses/MIT).
+Systemet krever en database med UTF-8 enkoding.
+
+Døp om filen .env.example til .env og fyll inn følgende info:
+
+ 1. APP_URL = lokalt domenenavn (eksempelvis 'localhost' eller 'sempro.dev')
+ 2. DB_DATABASE = databasenavn
+ 3. DB_USERNAME = brukernavn med tilgang til databasen
+ 4. DB_PASSWORD = passord
+ 5. MAILGUN_DOMAIN = gyldig domene på mailgun (bruk gjerne sandbox)
+ 6. MAILGUN_SECRET = api-nøkkel fra mailgun
+
+#### <i class="icon-pencil"></i> Konfigurasjon av virtuell tjener / tjener
+
+På Apache/Nginx skal 'Document root' i virtuell-host eller host konfigurasjon settes til 'public' mappen. Sett også 'Allow override all' i Apache-konfig for at systemet skal fungere.
+
+#### <i class="icon-cog"></i> Få systemet opp og gå
+
+1. Kjør `composer install`. Composer vil laste ned en drøss med ekstra pakker og generere autoload-filer, dette tar litt tid.
+2. Kjør `php artisan key:generate` som genererer en lokal nøkkel til sessions i systemet.
+3. Sett opp databasen ved å kjøre `php artisan migrate`. Tabeller blir klargjort.
+4. Fyll databasen ved å kjøre `php artisan db:seed`. 
+
+Hvis du vil kjøre systemet uten voldsomme feilmeldinger (dersom de oppstår), endrer du `.env`filens `APP_ENV`til `production`og `APP_DEBUG` settes til `false`.
+
+Systemet skal nå være klart til å kjøres.
+
+#### <i class="icon-search"></i> Om søkemotoren
+
+Søkemotoren i systemet er basert på TNTSearch fra TeamTNT. Det ligger en ferdig indeksert fil i mappen `storage` som krever skrive og lesetilgang. 
+
+Avhengig av konfigurasjon vil du kanskje måtte endre dette for at søkemotoren skal kunne skrive til filen. Filen er en SQLite database som endres hver gang en video legges til, slettes eller endres i systemet.
+
+
+
+
+----------
