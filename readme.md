@@ -45,13 +45,13 @@ På Apache/Nginx skal `document root` i virtuell-host eller host konfigurasjon s
 2. Kjør `php artisan key:generate` som genererer en lokal nøkkel til sessions i systemet.
 3. Sett opp databasen ved å kjøre `php artisan migrate`. Tabeller blir klargjort.
 4. Fyll databasen ved å kjøre `php artisan db:seed`.
-5. Kjør indeksering på databasen for å gjøre klar søkemotoren `php artisan index:videos`. Dersom du får feilmelding her, sjekk punktet [Rettigheter](#rettigheter) nedenfor.
+5. Kjør indeksering på databasen for å gjøre klar søkemotoren `php artisan videos:index`. Dersom du får feilmelding her, sjekk punktet [Rettigheter](#rettigheter) nedenfor.
 
 Hvis du vil kjøre systemet uten voldsomme feilmeldinger (dersom de oppstår), endrer du `.env`filens `APP_ENV` til `production`og `APP_DEBUG` settes til `false`.
 
 Systemet skal nå være klart til å kjøres.
 
-##### Rettigheter
+#### Rettigheter
 Dersom du får hvit skjerm eller en 500-feilmelding første gang du kjører systemet, er det sannsynligvis feil rettigheter på `boostrap/cache`og `storage` mappene.  
 
 Kjør følgende kommando på *nix systemer for å fikse dette, fra prosjektets rotmappe.  
@@ -66,6 +66,17 @@ Systemet skal nå fungere.
 Søkemotoren i systemet bruker en SQLite database som krever skrive- og lesetilgang. Denne filen ligger ferdig indeksert (baser på database-seed filene) i mappen `storage`. 
 
 Avhengig av konfigurasjon vil du kanskje måtte endre filrettighetene for at søkemotoren skal kunne skrive til filen. Filen oppdateres hver gang en video legges til, slettes eller endres i systemet.
+
+## Admin bruker
+For å kunne bruke systemet fullt ut må du opprette en admin-bruker. Du kan enten bruke systemets standardbruker eller lage din egen bruker.  
+
+Logg inn med **admin@localhost** og passord **admin**.  
+
+For å bruke funksjonaliteten for glemt passord må du opprette en egen bruker, og det gjør du ved å gå til **http://localhost/register** og fylle inn feltene der. Etter at du har gjort det blir du automatisk logget inn med din nye bruker.
+
+I admin-delen av prosjektet kan du legge til, endre og fjerne videoer og kategorier disse er sortert i.
+
+Systemet tar høyde for blant annet at du ikke kan slette alle kategorier i systemet, at dersom du ønsker å slette en kategori som har videoer i seg, må du først flytte disse videoene over i en annen kategori.
 
 
 
