@@ -14,6 +14,9 @@ Sett variabler for følgende:
 2. DB_DATABASE 
 3. DB_USERNAME
 4. DB_PASSWORD
+5. MAILGUN_DOMAIN bla bla
+6. MAILGUN_SECRET api key
+
 
 Apache2 document root should be set to public folder
 
@@ -29,6 +32,10 @@ includes file that is indexed for seed
 2. artisan migrate
 3. artisan db:seed --class=VideoTableSeeder
 4. artisan db:seed --class=CategoryTableSeeder
+
+Sett .env 
+APP_ENV=production
+APP_DEBUG=true to avoid nasty errors
 
 ## Tanker om koden
 

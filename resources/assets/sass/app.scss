@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700|Pragati+Narrow:700);
 
+/**
+ * ACTORS ON ACTORS
+ * Clone of Sempro project getv.no
+ * by Jan Tore Eger-Heed
+ * this css is a bit messy
+ */
+
 /*
  * FONTS AND VARIABLES OVERRIDE
  *
@@ -31,14 +38,48 @@ $btn-primary-bg: #666;
 
 $link-color: #666;
 
+
+/**
+ * Get bootstrap
+ */
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+
+/**
+ * Page section styles
+ */
+
+
+html {
+    background: url(../../images/background.jpg) no-repeat bottom right fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+
+}
 
 section#content {
     border-top: 1px solid #ccc;
     padding-top: 10px;
 }
 
+section#footer  {
+    background: rgba(255,255,255,0.4);
+}
+
+.bg-partial {
+    background: rgba(255,255,255,0.6);
+    min-height: 100vh;
+}
+
+
+/**
+ * Navbar overrides
+ */
 .navbar {
     font-family: $navbar-font-family;
     font-size: $navbar-font-size;
@@ -60,6 +101,7 @@ section#content {
 
 }
 
+/** navbar random background styles */
 .nav-bg-01 { background: url(../../images/navbg01.jpg) no-repeat top left ; }
 .nav-bg-02 { background: url(../../images/navbg02.jpg) no-repeat top left ; }
 .nav-bg-03 { background: url(../../images/navbg03.jpg) no-repeat top left ; }
@@ -107,22 +149,14 @@ ul.nav li.dropdown ul {
     }
 }
 
+// sets brand image to 0 when not on narrow screens
 img.brand{
         height: 0px;
     }
 
-html {
-	background: url(../../images/background.jpg) no-repeat bottom right fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-
-body {
-
-}
-
+/**
+ * Misc text styles
+ */
 p.description {
     font-weight: 400;
     font-size: 21px;
@@ -139,22 +173,28 @@ h1.pageTitle {
     }
 }
 
-.space-toolbar {
-    margin-left: 30px;
-}
+// buffer classes
+.buffer-10-bottom { margin-bottom: 10px; }
+.buffer-20-bottom { margin-bottom: 20px; }
+.buffer-30-bottom { margin-bottom: 30px; }
+.buffer-40-bottom { margin-bottom: 40px; }
 
+.buffer-10-top { margin-top: 10px; }
+.buffer-20-top { margin-top: 20px; }
+.buffer-30-top { margin-top: 30px; }
+.buffer-40-top { margin-top: 40px; }
 
+/**
+ * Styles for different pages
+ */
 
-.bg-partial {
-	background: rgba(255,255,255,0.6);
-	min-height: 100vh;
-}
-
+// Categories
 .categories-list {
     margin: 10px 0;
     font-family: 'Pragati-Narrow', sans-serif;
 }
 
+// Video listing
 .video-listing-item {
     position: relative;
     display: flex;
@@ -196,6 +236,7 @@ h1.pageTitle {
     }
 }
 
+// Video listing admin options
 .edit-video {
     margin: 0 0 0 5px;
 }
@@ -208,22 +249,11 @@ h1.pageTitle {
     margin-top: -16px;
 }
 
-// buffer classes
-.buffer-10-bottom { margin-bottom: 10px; }
-.buffer-20-bottom { margin-bottom: 20px; }
-.buffer-30-bottom { margin-bottom: 30px; }
-.buffer-40-bottom { margin-bottom: 40px; }
 
-.buffer-10-top { margin-top: 10px; }
-.buffer-20-top { margin-top: 20px; }
-.buffer-30-top { margin-top: 30px; }
-.buffer-40-top { margin-top: 40px; }
-
-@media (max-width: 480px) {
-    
-    
-}
-
+/**
+ * For smaller screens
+ * Set different height of video listing item
+ */
 @media only screen and (max-width: 60em) {
   .video-listing-item {
         height: 300px;
@@ -231,13 +261,11 @@ h1.pageTitle {
 }
 
 
-.video-listing-item:hover .icon-play-video {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-    opacity: 1
-}
-
-
+/**
+ * For smaller screens
+ * Hide navbar background when screen gets to narrow
+ * Set height of img.brand to show a logo instead
+ */
 @media only screen and (max-width: 768px) {
     .nav-bg-01 { background-size: 0 0; }
     .nav-bg-02 { background-size: 0 0; }
@@ -250,6 +278,7 @@ h1.pageTitle {
     .navbar {
         border: 0px !important;
     }
+
     img.brand{
         height: 222px;
     }
@@ -258,10 +287,11 @@ h1.pageTitle {
         background: rgba(0,0,0,0.1);
     }
 
-    .boxme {
-        
-    }
 
+    /**
+     * Navbar styles for smaller screens
+     * Overrides most borders from wide styles
+     */
     ul.nav li a {
         border-top: 0;
         border-bottom: 0;
@@ -286,7 +316,6 @@ h1.pageTitle {
         padding: 0;
         
         li {
-            
 
             a, a:hover {
                 border-top: 0;
@@ -300,10 +329,15 @@ h1.pageTitle {
     
 }
 
+/**
+ * Custom breaking point because of navbar bg image width
+ */
 @media only screen and (max-width: 515px) {
     .navbar {
         border: 0px !important;
     }
+
+    /** Reduce height of logo image on really narrow screens to prevent break */
     img.brand {
         height: 150px;
         margin-top: 72px;

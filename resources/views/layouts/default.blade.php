@@ -27,7 +27,7 @@
     </section>
 
     <section id="footer">
-       
+       @include('partials.footer')
     </section>
 
     <!-- JavaScripts -->
