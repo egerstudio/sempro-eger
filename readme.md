@@ -52,7 +52,7 @@ Hvis du vil kjøre systemet uten voldsomme feilmeldinger (dersom de oppstår), e
 Systemet skal nå være klart til å kjøres.
 
 ### Rettigheter
-Dersom du får hvit skjerm eller en 500-feilmelding første gang du kjører systemet, er det sannsynligvis feil rettigheter på `boostrap/cache`og `storage`mappene.  
+Dersom du får hvit skjerm eller en 500-feilmelding første gang du kjører systemet, er det sannsynligvis feil rettigheter på `boostrap/cache`og `storage` mappene.  
 
 Kjør følgende kommando på *nix systemer for å fikse dette, fra prosjektets rotmappe.  
 
