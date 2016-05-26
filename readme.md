@@ -45,7 +45,7 @@ På Apache/Nginx skal `document root` i virtuell-host eller host konfigurasjon s
 2. Kjør `php artisan key:generate` som genererer en lokal nøkkel til sessions i systemet.
 3. Sett opp databasen ved å kjøre `php artisan migrate`. Tabeller blir klargjort.
 4. Fyll databasen ved å kjøre `php artisan db:seed`.
-5. Kjør indeksering på databasen for å gjøre klar søkemotoren `php artisan videos:index`. Dersom du får feilmelding her, sjekk punktet [Rettigheter](#rettigheter) nedenfor.
+5. Kjør indeksering på databasen for å gjøre klar søkemotoren `php artisan index:videos`. Dersom du får feilmelding her, sjekk punktet [Rettigheter](#rettigheter) nedenfor.
 
 Hvis du vil kjøre systemet uten voldsomme feilmeldinger (dersom de oppstår), endrer du `.env`filens `APP_ENV` til `production`og `APP_DEBUG` settes til `false`.
 
