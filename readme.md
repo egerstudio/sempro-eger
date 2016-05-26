@@ -52,9 +52,9 @@ Systemet skal nå være klart til å kjøres.
 
 #### <i class="icon-search"></i> Om søkemotoren
 
-Søkemotoren i systemet er basert på TNTSearch fra TeamTNT. Det ligger en ferdig indeksert fil i mappen `storage` som krever skrive og lesetilgang. 
+Søkemotoren i systemet bruker en SQLite database som krever skrive- og lesetilgang. Denne filen ligger ferdig indeksert (baser på database-seed filene) i mappen `storage`. 
 
-Avhengig av konfigurasjon vil du kanskje måtte endre dette for at søkemotoren skal kunne skrive til filen. Filen er en SQLite database som endres hver gang en video legges til, slettes eller endres i systemet.
+Avhengig av konfigurasjon vil du kanskje måtte endre filrettighetene for at søkemotoren skal kunne skrive til filen. Filen oppdateres hver gang en video legges til, slettes eller endres i systemet.
 
 
 
