@@ -13,8 +13,8 @@ Installasjon
 
 Systemet kjører på Laravel 5.2 ([se her for installasjon og systemkrav](https://laravel.com/docs/5.2) ) med følgende tillegg.
 
-> **Tillegg:**
-> - **SQLite** for søkemotorfunksjonalitet (krever php5-sqlite/php7.0-sqlite3)
+> **Tillegg:**  
+> - **SQLite** for søkemotorfunksjonalitet (krever php5-sqlite/php7.0-sqlite3)  
 > - **Composer** brukes for installasjon av ekstra pakker til systemet. Påse at Composer er installert enten globalt eller lokalt i mappen. Se [getcomposer.org](http://www.getcomposer.org) for installasjon og oppsett. Dersom du kjører Composer lokalt skal du skrive `php composer.phar` istedet for `composer` slik denne veiledningen viser.
 
 
@@ -45,16 +45,21 @@ På Apache/Nginx skal `document root` i virtuell-host eller host konfigurasjon s
 2. Kjør `php artisan key:generate` som genererer en lokal nøkkel til sessions i systemet.
 3. Sett opp databasen ved å kjøre `php artisan migrate`. Tabeller blir klargjort.
 4. Fyll databasen ved å kjøre `php artisan db:seed`.
+5. Kjør indeksering på databasen for å gjøre klar søkemotoren `php artisan videos:index`. Dersom du får feilmelding her, sjekk punktet [Rettigheter](#rettigheter) nedenfor.
 
 Hvis du vil kjøre systemet uten voldsomme feilmeldinger (dersom de oppstår), endrer du `.env`filens `APP_ENV` til `production`og `APP_DEBUG` settes til `false`.
 
 Systemet skal nå være klart til å kjøres.
 
-> **Vær oppmerksom på**
-> - Dersom du får hvit skjerm eller en 500-feilmelding første gang du kjører systemet, er det sannsynligvis feil rettigheter på `boostrap/cache`og `storage`mappene. Kjør følgende kommando på *nix systemer for å fikse dette, fra prosjektets rotmappe.
-> - `sudo chgrp -R www-data storage bootstrap/cache` (www-data er lokal brukergruppe, tilpass om nødvendig)
-> - `sudo chmod -R ug+rwx storage bootstrap/cache`
-> - Systemet skal nå fungere.
+###Rettigheter
+Dersom du får hvit skjerm eller en 500-feilmelding første gang du kjører systemet, er det sannsynligvis feil rettigheter på `boostrap/cache`og `storage`mappene.  
+
+Kjør følgende kommando på *nix systemer for å fikse dette, fra prosjektets rotmappe.  
+
+`sudo chgrp -R www-data storage bootstrap/cache` (www-data er lokal brukergruppe, tilpass om nødvendig)  
+`sudo chmod -R ug+rwx storage bootstrap/cache`.  
+
+Systemet skal nå fungere.
 
 #### <i class="icon-search"></i> Om søkemotoren
 
