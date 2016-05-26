@@ -52,7 +52,7 @@ Systemet skal nå være klart til å kjøres.
 
 > **Vær oppmerksom på**
 > - Dersom du får hvit skjerm eller en 500-feilmelding første gang du kjører systemet, er det sannsynligvis feil rettigheter på `boostrap/cache`og `storage`mappene. Kjør følgende kommando på *nix systemer for å fikse dette, fra prosjektets rotmappe.
-> - `sudo chgrp -R **www-data** storage bootstrap/cache` (www-data er gruppen lokal bruker hører til, tilpass etter din konfigurasjon)
+> - `sudo chgrp -R www-data storage bootstrap/cache` (www-data er lokal brukergruppe, tilpass om nødvendi)
 > - `sudo chmod -R ug+rwx storage bootstrap/cache`
 > - Systemet skal nå fungere.
 
