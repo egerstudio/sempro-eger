@@ -311,5 +311,15 @@ class VideosTableSeeder extends Seeder
             'youtube_image' => 'https://i.ytimg.com/vi/6-9ZLfEQDVo/maxresdefault.jpg',
             'featured' => '0',
             ]);
+        DB::table('videos')->insert([
+            'title' => 'Michael Sheen and Bob Odenkirk',
+            'description' => '',
+            'youtube_id' => 'o1awAxUsCoc',
+            'slug' => 'michael-sheen-and-bob-odenkirk',
+            'youtube_date' => '2015-06-03 19:00:16',
+            'category_id' => '2',
+            'youtube_image' => 'https://i.ytimg.com/vi/o1awAxUsCoc/maxresdefault.jpg',
+            'featured' => '0',
+            ]);
     }
 }

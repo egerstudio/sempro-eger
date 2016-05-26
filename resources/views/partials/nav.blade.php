@@ -105,10 +105,12 @@ $selectedBg = "$bg[$i]";
                 <li><a class="" href="{{ url('/login') }}"><i class="fa fa-btn fa-sign-in"></i> Login</a></li>
             @endif
         </ul>
+
+        <!-- search form -->
         {!! Form::open(array('url' => 'search', 'class' => 'navbar-form navbar-right', 'role' => 'search')) !!}
             <div class="form-group">
                 <input type="text" name="query" class="form-control" placeholder="Search...">
-                <input type="submit" value="Search" class="form-control">
+                <button type="submit" role="button" class="btn btn-default"><i class="fa fa-search"></i> Search</button>
             </div>
         {!! Form::close() !!}
         

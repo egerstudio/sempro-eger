@@ -20,6 +20,9 @@ Apache2 document root should be set to public folder
 sudo chgrp -R www-data storage bootstrap/cache
 sudo chmod -R ug+rwx storage bootstrap/cache
 
+for search to work, sqlite for apache/php
+includes file that is indexed for seed
+
 1. composer install
 # Application key
 - php artisan key:generate

@@ -5750,7 +5750,8 @@ section#content {
 .navbar-form {
   margin: 0;
   border-top: 5px solid #ccc;
-  border-bottom: 1px solid #ccc; }
+  border-bottom: 1px solid #ccc;
+  button-color: #333; }
   .navbar-form input {
     margin: 3px 0 3px 0; }
 
